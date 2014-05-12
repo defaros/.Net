@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+   <project name="Crypt API" default="build" basedir=".">
+      <description>Crypt API nant script</description>
+         <target name="build" description="compiles the source code">
+            <csc target="library" output="..\bin\CryptAPI.dll">
+               <sources>
+                  <include name="*.cs" />
+               </sources>
+            </csc>
+            
+            <!-- Uncomment to build CryptAPITests.dll 
+            <nant target="${target::get-current-target()}">
+               <buildfiles>
+                  <include name="Tests/*.build" />
+               </buildfiles>
+            </nant>
+            -->
+         </target>
+</project>

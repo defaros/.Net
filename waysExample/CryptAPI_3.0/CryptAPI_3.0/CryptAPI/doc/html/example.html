@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<!--this design was created by Vacant (Chris Blunden), http://www.web-site.tk . Deep, version 1.5 created on 17/10/04 for OSWD.org ... DO NOT REMOVE this notice. Thanks. -->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>CryptAPI</title>
+
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+<!-- This page fully validates as XHTML 1.0 Strict on validator.w3.org (this notice can be removed) -->
+</head>
+
+
+<body>
+
+<div id="outer">
+<div id="inner">
+<div class="bgtext">CryptAPI</div>
+
+<div id="close"><a href="index.html" title="close and return to menu">X</a></div>
+
+<div id="top"><a href="#top" title="back to top">^</a></div>
+
+<!--greyed out links-->
+<div id="text1">home</div>
+
+<div id="text2">Features</div>
+
+<div id="text3">Documentation</div>
+
+<div id="text5">About us</div>
+
+<div id="text4">Example</div>
+
+<div id="text6">Download</div>
+
+<div id="text7">Contact us</div>
+
+<!--greyed out links end-->
+<div id="urltext"><a href="index.html" class="navigurl" title="click to return to the index page">index
+&raquo; </a>Example</div>
+
+<div id="content"> <a name="top"></a><!-- very important! this is the anchor for the back to top feature. Remove it at your own risk! :P -->
+<div class="titleblock">Example</div>
+
+CryptServiceProvider is the main class to use, this class implements a service provider for all the
+supported cryptographic algorithms.
+<br/><br/>
+In this example we print the hash of a string encrypted with MD5
+<br/><br/>
+<div id="codepanel">
+ <code>
+    using System;<br/> 
+    using CryptAPI;<br/>
+    <br/>
+    public class Example1 { <br/>
+       &nbsp;public static void Main(string[] args)  <br/>
+       &nbsp;{ <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;CryptServiceProvider provider = new CryptServiceProvider(Algorithm.MD5); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;HashAlgorithm md5 = provider.GetCryptServiceProvider(); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(md5.Encrypt("Hello MD5")); <br/>
+        &nbsp;} <br/>
+        }
+ </code>
+
+</div>
+<br/>
+And now with BlowFish
+<br/><br/>
+<div id="codepanel">
+   <code>
+     &nbsp;&nbsp;&nbsp;&nbsp;... <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;CryptServiceProvider provider = new CryptServiceProvider(); <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;HashAlgorithm bf = provider.GetCryptServiceProvider(Algorithm.BF);<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;string salt = "Averyveryveryveryverylongstring";<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(bf.Encrypt("Top Secret",salt));<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;... <br/>
+   </code>
+</div>
+<br/>
+We also provide two useful utilities, a random password generator and a random salt generator
+the next example shows how to use both
+<br/><br/>
+<div id="codepanel">
+   <code>
+     &nbsp;&nbsp;&nbsp;&nbsp;... <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;PasswordRandomGenerator ea = new PasswordRandomGenerator();<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Random password of length 8: "+ea.CreateRandomString(8,8));<br/><br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;SaltRandomGenerator eaea = new SaltRandomGenerator();<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Blowfish Salt " + eaea.CreateRandomString(22,22));<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("MD5 Salt " + eaea.CreateRandomString(16,16));<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("DES Salt " + eaea.CreateRandomString(8,8));<br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;... <br/>
+   </code>
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
