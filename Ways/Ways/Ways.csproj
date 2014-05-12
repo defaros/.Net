@@ -79,6 +79,7 @@
     <Compile Include="Client\Composant utilisateurs\Question.cs" />
     <Compile Include="Client\Composant utilisateurs\Reponse.cs" />
     <Compile Include="Client\Composant utilisateurs\User.cs" />
+    <Compile Include="Middleware\Service etendu\Composant d%27acces aux donnees\CAD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Client\Composant utilisateur de communication\AdminForm.resx">
@@ -120,7 +121,6 @@
     <Folder Include="Middleware\Metier\Composant technique\" />
     <Folder Include="Middleware\Metier\Controleur workflow\" />
     <Folder Include="Middleware\Metier\Mappage\" />
-    <Folder Include="Middleware\Service etendu\Composant d%27acces aux donnees\" />
     <Folder Include="Middleware\Service etendu\Composant de communication\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
