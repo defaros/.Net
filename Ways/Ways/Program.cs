@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ways.Client.Composant_utilisateur_de_communication;
 
 namespace Ways
 {
