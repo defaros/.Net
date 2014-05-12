@@ -1,0 +1,48 @@
+
+
+<!-- 'KEYAUTHHHHHHHH' Permet de vérifier si le fichier XML recu proviens de notre systeme-->
+
+<trame>
+  
+  
+  <!-- TRAME DU CLIENT VERS BDD pour les questions -->
+  <ip>192.168.X.X</ip>
+
+  <genre>
+    <type>Traitement Client</type>
+  </genre>
+  
+  <action>
+    <type>Afficher réponse</type>
+  </action>
+
+  <domaine>
+    <type>Orientation</type>
+  </domaine>
+
+  <traitement>
+    <type>NULL</type>
+  </traitement>
+
+
+  <!-- TRAME Du CLIENT vers BDD pour l'administration -->
+    <ip>192.168.x.x</ip>
+
+  <genre>
+    <type>Traitement Admin</type>
+  </genre>
+  
+  <action>
+    <type>Questions</type>
+  </action>
+
+  <domaine>
+    <type>Orientation</type>
+  </domaine>
+
+  <traitement>
+    <type>Ajout</type>
+  </traitement>
+    
+  
+</trame>

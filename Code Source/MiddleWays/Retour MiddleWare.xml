@@ -1,0 +1,80 @@
+
+
+<!-- 'KEYAUTHHHHHHHH' Permet de vérifier si le fichier XML recu proviens de notre systeme-->
+
+
+
+
+<trame>
+
+  <entete>
+    <genre>
+      <type>Traitement Client</type>
+    </genre>
+  
+    <action>
+      <type>Afficher réponse</type>
+    </action>
+
+    <domaine>
+      <type>Orientation</type>
+    </domaine>
+
+    <traitement>
+      <type>NULL</type>
+    </traitement>
+  </entete>
+  
+  <!-- AFFICHER QUESTION(S) -->
+  <content>
+    <question>
+ 
+      <id>2</id>
+      <contenu>Aimez vous la dev?</contenu>
+      
+      <reponse>
+        <id>34</id>
+        <contenu>oui</contenu>
+      </reponse>
+      
+      <reponse>
+        <id>22</id>
+        <contenu>non</contenu>
+      </reponse>
+      
+    </question>
+  </content>
+   
+  <!-- RETOUR QUESTION ORIENTATION  -->
+  <content>
+    <metier>
+      <nom>Developpeur d'application</nom>
+      <description>Métier de ouf!!!</description>
+    </metier>
+  </content>
+  
+  <!-- RETOUR QUESTION JEU -->
+  <content>
+    <entree>
+      <pseudo>Jimy</pseudo>
+      <score>215</score>
+    </entree>
+    <entree>
+      <pseudo>Quad</pseudo>
+      <score>94000000000</score>
+    </entree>
+  </content>
+  
+  <!-- RECUPERATION LISTE REPONSE ORIENTATION / JEU -->
+  <entree>
+    <id_q>1</id_q>
+    <id_r>4</id_r>
+  </entree>
+  <entree>
+    <id_q>2</id_q>
+    <id_r>1</id_r>
+  </entree>
+  
+  
+  
+</trame>
