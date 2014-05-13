@@ -1,4 +1,4 @@
-﻿namespace Ways.Client.Composant_utilisateur_de_communication
+﻿namespace Ways.Client.Composant_utilisateurs
 {
     partial class MainForm
     {
@@ -33,7 +33,7 @@
             this.buttonOrien = new System.Windows.Forms.Button();
             this.buttonJeu = new System.Windows.Forms.Button();
             this.buttonAdmin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             this.buttonOrien.TabIndex = 2;
             this.buttonOrien.Text = "Accès à la section Orientation";
             this.buttonOrien.UseVisualStyleBackColor = true;
+            this.buttonOrien.Click += new System.EventHandler(this.buttonOrien_Click);
             // 
             // buttonJeu
             // 
@@ -72,6 +73,7 @@
             this.buttonJeu.TabIndex = 3;
             this.buttonJeu.Text = "Accès à la section jeu";
             this.buttonJeu.UseVisualStyleBackColor = true;
+            this.buttonJeu.Click += new System.EventHandler(this.buttonJeu_Click);
             // 
             // buttonAdmin
             // 
@@ -81,13 +83,14 @@
             this.buttonAdmin.TabIndex = 4;
             this.buttonAdmin.Text = "Accès Administrateur";
             this.buttonAdmin.UseVisualStyleBackColor = true;
+            this.buttonAdmin.Click += new System.EventHandler(this.buttonAdmin_Click);
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(369, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxName.Location = new System.Drawing.Point(369, 121);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.TabIndex = 5;
             // 
             // labelName
             // 
@@ -98,19 +101,19 @@
             this.labelName.TabIndex = 6;
             this.labelName.Text = "Entrez un surnom: ";
             // 
-            // GameForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 261);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonAdmin);
             this.Controls.Add(this.buttonJeu);
             this.Controls.Add(this.buttonOrien);
             this.Controls.Add(this.labelExplications);
             this.Controls.Add(this.labelHello);
-            this.Name = "GameForm";
+            this.Name = "MainForm";
             this.Text = "GameForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,7 +127,7 @@
         private System.Windows.Forms.Button buttonOrien;
         private System.Windows.Forms.Button buttonJeu;
         private System.Windows.Forms.Button buttonAdmin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
     }
 }

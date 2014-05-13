@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ways.Client.Composant_utilisateurs
+namespace Ways.Client.Composant_utilisateur_de_communication
 {
-    class Classement
+    public class Classement
     {
+        //Liste d'users formant un classement
         User[] users;
 
         public Classement(User[] users)

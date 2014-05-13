@@ -1,4 +1,4 @@
-﻿namespace Ways.Client.Composant_utilisateur_de_communication
+﻿namespace Ways.Client.Composant_utilisateurs
 {
     partial class LoginForm
     {
@@ -30,9 +30,9 @@
         {
             this.buttonSend = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxPsw = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             this.buttonSend.TabIndex = 0;
             this.buttonSend.Text = "Ok";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // label1
             // 
@@ -54,12 +55,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Identifiant :";
             // 
-            // textBox1
+            // textBoxIdentifiant
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxIdentifiant.Location = new System.Drawing.Point(92, 104);
+            this.textBoxIdentifiant.Name = "textBoxIdentifiant";
+            this.textBoxIdentifiant.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIdentifiant.TabIndex = 3;
             // 
             // label2
             // 
@@ -70,12 +71,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Mot de passe :";
             // 
-            // textBox2
+            // textBoxPsw
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 153);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.textBoxPsw.Location = new System.Drawing.Point(92, 153);
+            this.textBoxPsw.Name = "textBoxPsw";
+            this.textBoxPsw.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPsw.TabIndex = 5;
             // 
             // label3
             // 
@@ -93,12 +94,13 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxPsw);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxIdentifiant);
             this.Controls.Add(this.buttonSend);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,9 +110,9 @@
 
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxIdentifiant;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPsw;
         private System.Windows.Forms.Label label3;
     }
 }

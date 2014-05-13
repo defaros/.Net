@@ -8,6 +8,7 @@ namespace Ways.Middleware.Metier.Mappage
 {
     class Requetes
     {
+        //Redirige les requetes faites à la BDD aux procédures stockées correspondantes
 
         public static string[] getAllNames()
         {

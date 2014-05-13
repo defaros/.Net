@@ -1,6 +1,6 @@
-﻿namespace Ways.Client.Composant_utilisateur_de_communication
+﻿namespace Ways.Client.Composant_utilisateurs
 {
-    partial class OriantationForm
+    partial class OrientationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // OrientationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "OriantationForm";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "OrientationForm";
+            this.Text = "OrientationForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -44,57 +44,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\Composant de travail\TravailClient.cs" />
-    <Compile Include="Client\Composant utilisateur de communication\AdminForm.cs">
+    <Compile Include="Client\3.Composant de travail\TravailClient.cs" />
+    <Compile Include="Client\1.Composant utilisateurs\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\AdminForm.Designer.cs">
+    <Compile Include="Client\1.Composant utilisateurs\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\MainForm.cs">
+    <Compile Include="Client\1.Composant utilisateurs\ClassementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\MainForm.Designer.cs">
+    <Compile Include="Client\1.Composant utilisateurs\ClassementForm.Designer.cs">
+      <DependentUpon>ClassementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\1.Composant utilisateurs\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\1.Composant utilisateurs\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\LoginForm.cs">
+    <Compile Include="Client\1.Composant utilisateurs\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\LoginForm.Designer.cs">
+    <Compile Include="Client\1.Composant utilisateurs\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\GameForm.cs">
+    <Compile Include="Client\1.Composant utilisateurs\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\GameForm.Designer.cs">
+    <Compile Include="Client\1.Composant utilisateurs\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\OriantationForm.cs">
+    <Compile Include="Client\1.Composant utilisateurs\OrientationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\Composant utilisateur de communication\OriantationForm.Designer.cs">
-      <DependentUpon>OriantationForm.cs</DependentUpon>
+    <Compile Include="Client\1.Composant utilisateurs\OrientationForm.Designer.cs">
+      <DependentUpon>OrientationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Composant utilisateurs\Classement.cs" />
-    <Compile Include="Client\Composant utilisateurs\Metier.cs" />
-    <Compile Include="Client\Composant utilisateurs\Question.cs" />
-    <Compile Include="Client\Composant utilisateurs\Reponse.cs" />
-    <Compile Include="Client\Composant utilisateurs\User.cs" />
-    <Compile Include="Middleware\Metier\Mappage\Requetes.cs" />
-    <Compile Include="Middleware\Service etendu\Composant d%27acces aux donnees\CAD.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\Classement.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\Metier.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\Question.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\Reponse.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\User.cs" />
+    <Compile Include="Middleware\4.Composant d%27acces metier\accesMetier.cs" />
+    <Compile Include="Middleware\5.Groupe de processus\processus.cs" />
+    <Compile Include="Middleware\6.Metier\Composant technique\technique.cs" />
+    <Compile Include="Middleware\6.Metier\Controleur workflow\controleur.cs" />
+    <Compile Include="Middleware\6.Metier\Mappage\Requetes.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\CAD.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant de communication\ErrorMessage.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant de communication\InfoMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Client\Composant utilisateur de communication\AdminForm.resx">
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Composant utilisateur de communication\GameForm.resx">
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\ClassementForm.resx">
+      <DependentUpon>ClassementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Composant utilisateur de communication\MainForm.resx">
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Composant utilisateur de communication\LoginForm.resx">
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\1.Composant utilisateurs\OrientationForm.resx">
+      <DependentUpon>OrientationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,14 +137,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Middleware\Composant d%27acces metier\" />
     <Folder Include="Middleware\Composant serveur\" />
-    <Folder Include="Middleware\Groupe de processus\" />
-    <Folder Include="Middleware\Metier\Composant technique\" />
-    <Folder Include="Middleware\Metier\Controleur workflow\" />
-    <Folder Include="Middleware\Service etendu\Composant d%27acces aux donnees\" />
-    <Folder Include="Middleware\Metier\Mappage\" />
-    <Folder Include="Middleware\Service etendu\Composant de communication\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

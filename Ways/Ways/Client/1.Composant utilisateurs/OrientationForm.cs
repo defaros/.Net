@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ways.Client.Composant_utilisateur_de_communication
+namespace Ways.Client.Composant_utilisateurs
 {
-    public partial class AdminForm : Form
+    public partial class OrientationForm : Form
     {
-        public AdminForm()
+        public OrientationForm()
         {
             InitializeComponent();
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
