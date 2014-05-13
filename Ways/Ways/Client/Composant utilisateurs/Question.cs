@@ -9,11 +9,11 @@ namespace Ways.Client.Composant_utilisateurs
     class Question
     {
 
-        string enonce;
+        public string enonce;
 
-        string type;
+        public string type;
 
-        Reponse[] reponses;
+        public Reponse[] reponses;
 
 
         public Question(string enonce, string type, Reponse[] reponses)

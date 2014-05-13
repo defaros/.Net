@@ -9,8 +9,8 @@ namespace Ways.Client.Composant_utilisateurs
     class Reponse
     {
 
-        string reponse;
-        int points;
+        public string reponse;
+        public int points;
 
 
 

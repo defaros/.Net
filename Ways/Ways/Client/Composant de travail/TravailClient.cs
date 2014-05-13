@@ -17,6 +17,10 @@ namespace Ways.Client.Composant_de_travail
             {
                 return false;
             }
+            else if (name.Length > 20)
+            {
+                return false;
+            }
             else if (isThatNameAlreadyUse(name))
             {
                 return false;
