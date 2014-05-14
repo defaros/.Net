@@ -109,7 +109,14 @@ namespace Ways.Client.Composant_de_travail
             int num;
             if (int.TryParse("string", out num))
             {
-                // code si conversion OK
+                if (num < 0)
+                {
+                    accesMetier.addQuestion(enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+                }
+                else
+                {
+                    accesMetier.modifQuestion(IDQuestion, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+                }
             }
             else
             {
@@ -128,10 +135,12 @@ namespace Ways.Client.Composant_de_travail
 
         /********************************************************AidezNousForm******************************************************/
 
-        public static void showAidezNousForm()
+        public static Reponse showAidezNousForm()
         {
             AidezNousForm AideForm = new AidezNousForm();
             AideForm.ShowDialog();
+
+            return AideForm.reponse;
         }
 
 
@@ -139,10 +148,12 @@ namespace Ways.Client.Composant_de_travail
         /********************************************************EmailForm******************************************************/
 
 
-        public static void showEmailForm()
+        public static Reponse showEmailForm()
         {
             EmailsForm emailForm = new EmailsForm();
             emailForm.ShowDialog();
+
+            return emailForm.rep;
         }
 
 

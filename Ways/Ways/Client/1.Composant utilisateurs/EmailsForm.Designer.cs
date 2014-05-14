@@ -33,6 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
+            this.buttonAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -81,11 +82,22 @@
             this.labelError.Text = "Email non valide!";
             this.labelError.Visible = false;
             // 
+            // buttonAnnuler
+            // 
+            this.buttonAnnuler.Location = new System.Drawing.Point(422, 156);
+            this.buttonAnnuler.Name = "buttonAnnuler";
+            this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.buttonAnnuler.TabIndex = 5;
+            this.buttonAnnuler.Text = "Annuler";
+            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
+            // 
             // EmailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 208);
+            this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.textBox1);
@@ -105,5 +117,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Button buttonAnnuler;
     }
 }

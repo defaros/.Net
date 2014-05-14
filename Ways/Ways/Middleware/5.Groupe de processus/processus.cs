@@ -79,11 +79,24 @@ namespace Ways.Middleware.Groupe_de_processus
 
         public static void showClassement(List<Reponse> reps)
         {
-            accesMetier.showAidezNous();
-            accesMetier.showEmailForm();
+            Reponse RepAidezNous = null;
+            Reponse RepEmail = null;
+            
+            RepAidezNous = accesMetier.showAidezNous();
+            if (RepAidezNous != null)
+            {
+                RepEmail = accesMetier.showEmailForm();
+            }
+
+            reps.Add(RepAidezNous);
+            reps.Add(RepEmail);
             technique.calculScore(reps);
             accesMetier.showClassementForm();
         }
+
+
+
+
 
     }
 }

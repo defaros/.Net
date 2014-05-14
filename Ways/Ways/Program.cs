@@ -39,6 +39,9 @@ namespace Ways
             List<Question> questions = new List<Question>();
             questions.Add(question);
 
+
+
+
             //Application.Run(new GameForm(quests, 1));
 
             //Application.Run(new AdminForm(questions, null, null));

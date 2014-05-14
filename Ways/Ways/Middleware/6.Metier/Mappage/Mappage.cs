@@ -18,7 +18,7 @@ namespace Ways.Middleware.Metier.Mappage
         }
 
 
-        public static void addQuestion (int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void addQuestion (string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
 
         }

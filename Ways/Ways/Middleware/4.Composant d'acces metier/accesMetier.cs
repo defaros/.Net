@@ -65,9 +65,9 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
 
         //Section Mappage
-        public static void addQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void addQuestion( string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            Mappage.addQuestion(IDQuestion, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+            Mappage.addQuestion( enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
         }
 
         public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
@@ -88,14 +88,14 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
         //Vers la couche client
 
-        public static void showAidezNous()
+        public static Reponse showAidezNous()
         {
-            TravailClient.showAidezNousForm();
+            return TravailClient.showAidezNousForm();
         }
 
-        public static void showEmailForm()
+        public static Reponse showEmailForm()
         {
-            TravailClient.showEmailForm();
+            return TravailClient.showEmailForm();
         }
 
         public static void showClassementForm()

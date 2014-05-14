@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ways.Client.Composant_de_travail;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
 
@@ -19,7 +20,7 @@ namespace Ways.Client.Composant_utilisateurs
         //Numéro de la question en cours
         public int numCurrentQuestion = 0;
         //Liste des réponses choisies par l'utilisateur
-        List<Reponse> reponsesDonnées = new List<Reponse>();
+        List<Reponse> reponsesDonnees = new List<Reponse>();
 
         public GameForm(Question[] questions, int typeJeu)
         {
@@ -103,7 +104,7 @@ namespace Ways.Client.Composant_utilisateurs
                     {
                         if (radBut.Text == rep.reponse)
                         {
-                            reponsesDonnées.Add(rep);
+                            reponsesDonnees.Add(rep);
                             break;
                         }
                     }
@@ -119,6 +120,17 @@ namespace Ways.Client.Composant_utilisateurs
             }
             else
             {
+                Reponse repAidez = TravailClient.showAidezNousForm();
+                Reponse repEmail = null;
+
+                if (repAidez.reponse != null)
+                {
+                    repEmail = TravailClient.showEmailForm();
+                }
+
+
+
+
                 ClassementForm CF = new ClassementForm(null,null);
                 CF.Show();
                 this.Hide();
