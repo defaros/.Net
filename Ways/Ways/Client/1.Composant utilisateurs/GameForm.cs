@@ -71,16 +71,10 @@ namespace Ways.Client.Composant_utilisateurs
         private void displayNewQuestion(Question question, int numQuestion)
         {
             //On rempli l'énoncé
-<<<<<<< HEAD
-            textBoxQuestion.Text = "Question n°" + numQuestion;
-
-            textBoxEnonce.Text = question.enonce;
-=======
             richTextBoxType.Text = "Question n°" + numQuestion;
             
 
             textBoxQuestion.Text = question.enonce;
->>>>>>> c9e2deec2c9657841ce7cd1a6ad816d54cd2de37
 
             //On remplis les radioButtons
             try

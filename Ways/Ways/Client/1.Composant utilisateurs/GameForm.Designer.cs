@@ -33,11 +33,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.buttonValider = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-=======
             this.richTextBoxType = new System.Windows.Forms.RichTextBox();
->>>>>>> c9e2deec2c9657841ce7cd1a6ad816d54cd2de37
             this.textBoxQuestion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -103,20 +99,6 @@
             this.buttonValider.UseVisualStyleBackColor = false;
             this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
-<<<<<<< HEAD
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.richTextBox1.Location = new System.Drawing.Point(253, 29);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(372, 66);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "Questionnaire Jeu";
-=======
             // richTextBoxType
             // 
             this.richTextBoxType.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -129,7 +111,6 @@
             this.richTextBoxType.Size = new System.Drawing.Size(372, 66);
             this.richTextBoxType.TabIndex = 7;
             this.richTextBoxType.Text = "Questionnaire Jeu";
->>>>>>> c9e2deec2c9657841ce7cd1a6ad816d54cd2de37
             // 
             // textBoxQuestion
             // 
@@ -149,11 +130,7 @@
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(819, 428);
             this.Controls.Add(this.textBoxQuestion);
-<<<<<<< HEAD
-            this.Controls.Add(this.richTextBox1);
-=======
             this.Controls.Add(this.richTextBoxType);
->>>>>>> c9e2deec2c9657841ce7cd1a6ad816d54cd2de37
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
@@ -179,11 +156,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Button buttonValider;
-<<<<<<< HEAD
-        private System.Windows.Forms.RichTextBox richTextBox1;
-=======
         private System.Windows.Forms.RichTextBox richTextBoxType;
->>>>>>> c9e2deec2c9657841ce7cd1a6ad816d54cd2de37
         private System.Windows.Forms.TextBox textBoxQuestion;
     }
 }
