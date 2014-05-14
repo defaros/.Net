@@ -82,13 +82,9 @@ namespace Ways.Client.Composant_de_travail
         }
 
 
-        public static int calculerScore()
+        public static int calculScore(List<Reponse> reps)
         {
-            int score = 0;
-
-
-
-            return score;
+            return accesMetier.calculScore(reps);
         }
 
         public static Classement setNewClassement(User newScore)

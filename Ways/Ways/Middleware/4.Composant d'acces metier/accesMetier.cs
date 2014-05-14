@@ -49,8 +49,11 @@ namespace Ways.Middleware.Composant_d_acces_metier
             technique.saveEmailConfig(URL, port, compte, mdp);
         }
 
-        
 
+        public static int calculScore(List<Reponse> reps)
+        {
+            return technique.calculScore(reps);
+        }
 
 
 

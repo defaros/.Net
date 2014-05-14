@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.textBoxPrenom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxAge = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonH = new System.Windows.Forms.RadioButton();
+            this.radioButtonF = new System.Windows.Forms.RadioButton();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonAnnuler = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -50,19 +54,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom :";
             // 
-            // textBox1
+            // textBoxNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxNom.Location = new System.Drawing.Point(152, 28);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNom.TabIndex = 1;
             // 
-            // textBox2
+            // textBoxPrenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxPrenom.Location = new System.Drawing.Point(152, 71);
+            this.textBoxPrenom.Name = "textBoxPrenom";
+            this.textBoxPrenom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrenom.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,12 +77,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Prenom :";
             // 
-            // textBox3
+            // textBoxAge
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 115);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.textBoxAge.Location = new System.Drawing.Point(152, 115);
+            this.textBoxAge.Name = "textBoxAge";
+            this.textBoxAge.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAge.TabIndex = 5;
             // 
             // label3
             // 
@@ -98,27 +102,27 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Sexe :";
             // 
-            // radioButton1
+            // radioButtonH
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(152, 157);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Homme";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonH.AutoSize = true;
+            this.radioButtonH.Location = new System.Drawing.Point(152, 157);
+            this.radioButtonH.Name = "radioButtonH";
+            this.radioButtonH.Size = new System.Drawing.Size(61, 17);
+            this.radioButtonH.TabIndex = 7;
+            this.radioButtonH.TabStop = true;
+            this.radioButtonH.Text = "Homme";
+            this.radioButtonH.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonF
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(152, 180);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(59, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Femme";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonF.AutoSize = true;
+            this.radioButtonF.Location = new System.Drawing.Point(152, 180);
+            this.radioButtonF.Name = "radioButtonF";
+            this.radioButtonF.Size = new System.Drawing.Size(59, 17);
+            this.radioButtonF.TabIndex = 8;
+            this.radioButtonF.TabStop = true;
+            this.radioButtonF.Text = "Femme";
+            this.radioButtonF.UseVisualStyleBackColor = true;
             // 
             // buttonValider
             // 
@@ -140,21 +144,61 @@
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(516, 117);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(87, 13);
+            this.labelError.TabIndex = 15;
+            this.labelError.Text = "Email non valide!";
+            this.labelError.Visible = false;
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(394, 77);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(327, 20);
+            this.textBoxEmail.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(505, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Invitez un de vos amis!";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(290, 182);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(265, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Les adresses e-mail ne seront pas conservées en base";
+            // 
             // AidezNousForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(757, 261);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.buttonValider);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButtonF);
+            this.Controls.Add(this.radioButtonH);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxAge);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxPrenom);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.label1);
             this.Name = "AidezNousForm";
             this.Text = "Aidez Nous à mieux vous connaitre";
@@ -166,15 +210,19 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.TextBox textBoxPrenom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonH;
+        private System.Windows.Forms.RadioButton radioButtonF;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonAnnuler;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

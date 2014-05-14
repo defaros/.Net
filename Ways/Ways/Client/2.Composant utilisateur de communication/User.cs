@@ -10,9 +10,9 @@ namespace Ways.Client.Composant_utilisateur_de_communication
     {
         //User posedant un score et un plassement dans un classement
 
-        string name;
-        int score;
-        int placement;
+        public string name;
+        public int score;
+        public int placement;
 
         public User(string NewName)
         {
@@ -24,12 +24,6 @@ namespace Ways.Client.Composant_utilisateur_de_communication
         public User(string NewName, int score, int placement)
         {
             this.name = NewName;
-            this.score = score;
-            this.placement = placement;
-        }
-
-        public void setScore(int score, int placement)
-        {
             this.score = score;
             this.placement = placement;
         }

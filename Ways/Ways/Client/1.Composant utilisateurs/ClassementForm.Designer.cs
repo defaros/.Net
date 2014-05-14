@@ -34,6 +34,7 @@
             this.labelNom = new System.Windows.Forms.Label();
             this.labelPosition = new System.Windows.Forms.Label();
             this.buttonRetour = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,12 +100,25 @@
             this.buttonRetour.Text = "Retour au menu Principal";
             this.buttonRetour.UseVisualStyleBackColor = false;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 30F);
+            this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBox1.Location = new System.Drawing.Point(234, 4);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(246, 60);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = "Classement";
+            // 
             // ClassementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(710, 398);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.labelPosition);
             this.Controls.Add(this.labelNom);
@@ -130,6 +144,7 @@
         private System.Windows.Forms.Label labelNom;
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.Button buttonRetour;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
     }
 }

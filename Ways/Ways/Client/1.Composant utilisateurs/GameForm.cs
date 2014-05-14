@@ -15,6 +15,8 @@ namespace Ways.Client.Composant_utilisateurs
 {
     public partial class GameForm : Form
     {
+        //User en cours
+        public User currentUser = null;
         //Liste des questions à afficher
         public Question[] questionsToDisplay = null;
         //Numéro de la question en cours
@@ -22,9 +24,12 @@ namespace Ways.Client.Composant_utilisateurs
         //Liste des réponses choisies par l'utilisateur
         List<Reponse> reponsesDonnees = new List<Reponse>();
 
-        public GameForm(Question[] questions, int typeJeu)
+        public GameForm(User user, Question[] questions, int typeJeu)
         {
             InitializeComponent();
+
+            //sauvegarde de l'user
+            this.currentUser = user;
 
             //Mise en forme de la fenêtre
             if (typeJeu == 0)
@@ -66,9 +71,10 @@ namespace Ways.Client.Composant_utilisateurs
         private void displayNewQuestion(Question question, int numQuestion)
         {
             //On rempli l'énoncé
-            labelQuestion.Text = "Question n°" + numQuestion;
+            richTextBoxType.Text = "Question n°" + numQuestion;
+            
 
-            labelEnonce.Text = question.enonce;
+            textBoxQuestion.Text = question.enonce;
 
             //On remplis les radioButtons
             try
@@ -128,11 +134,18 @@ namespace Ways.Client.Composant_utilisateurs
                     repEmail = TravailClient.showEmailForm();
                 }
 
+                reponsesDonnees.Add(repAidez);
+                reponsesDonnees.Add(repEmail);
 
 
+                 currentUser.score = TravailClient.calculScore(reponsesDonnees);
 
-                ClassementForm CF = new ClassementForm(null,null);
-                CF.Show();
+                //enregistrer en BDD 
+                //calculer classement
+
+
+                /*ClassementForm CF = new ClassementForm();
+                CF.Show();*/
                 this.Hide();
             }
 

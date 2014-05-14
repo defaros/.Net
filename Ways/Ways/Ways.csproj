@@ -56,12 +56,6 @@
     <Compile Include="Client\1.Composant utilisateurs\EmailsForm.Designer.cs">
       <DependentUpon>EmailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\1.Composant utilisateurs\FormTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Client\1.Composant utilisateurs\FormTest.Designer.cs">
-      <DependentUpon>FormTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Client\3.Composant de travail\TravailClient.cs" />
     <Compile Include="Client\1.Composant utilisateurs\AdminForm.cs">
       <SubType>Form</SubType>
@@ -125,9 +119,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\1.Composant utilisateurs\EmailsForm.resx">
       <DependentUpon>EmailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Client\1.Composant utilisateurs\FormTest.resx">
-      <DependentUpon>FormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\1.Composant utilisateurs\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
