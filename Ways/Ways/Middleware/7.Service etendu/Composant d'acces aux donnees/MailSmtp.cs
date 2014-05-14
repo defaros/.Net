@@ -49,7 +49,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                 message.Body = (string)oMsg.GetData("body");
             }
 
-            smtp.Host = "smtp.orange.fr";
+            smtp.Host = "smtp.gmail.com";
             smtp.Port = 25;
             smtp.Send(message);
 

@@ -43,7 +43,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                     )
                 );
 
-                document.Save(@"C:\Users\RcBh\Desktop\.NET\ConfigSqlServer.xml");
+                document.Save(@"E:\Depot\.Net\Ways\Configsmtp.xml");
             }
             catch (Exception e)
             {
@@ -59,7 +59,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             {
 
                 // Charge le fichier XML de config
-                XDocument document = XDocument.Load(@"C:\Users\RcBh\Desktop\.NET\ConfigSqlServer.xml");
+                XDocument document = XDocument.Load(@"E:\Depot\.Net\Ways\Configsmtp.xml");
 
                 // Récupère le chemin source du serveur
                 string sourceC = "";
@@ -158,7 +158,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                     )
                 );
 
-                document.Save(@"C:\Users\RcBh\Desktop\.NET\Configsmtp.xml");
+                document.Save(@"E:\Depot\.Net\Ways\Configsmtp.xml");
             }
             catch (Exception e)
             {
@@ -184,7 +184,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             {
 
                 // Charge le fichier XML de config
-                XDocument document = XDocument.Load(@"C:\Users\RcBh\Desktop\.NET\Configsmtp.xml");
+                XDocument document = XDocument.Load(@"E:\Depot\.Net\Ways\Configsmtp.xml");
 
                 // Récupère le chemin source du serveur
                 string hostC = "";

@@ -66,9 +66,9 @@ namespace Ways.Client.Composant_utilisateurs
         private void displayNewQuestion(Question question, int numQuestion)
         {
             //On rempli l'énoncé
-            labelQuestion.Text = "Question n°" + numQuestion;
+            //labelQuestion.Text = "Question n°" + numQuestion;
 
-            labelEnonce.Text = question.enonce;
+            //labelEnonce.Text = question.enonce;
 
             //On remplis les radioButtons
             try
