@@ -122,9 +122,31 @@ namespace Ways.Client.Composant_de_travail
 
         }
 
-        public static void supprQuestion(int IDQuestion)
+        public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
         {
+            Reponse repAidez = TravailClient.showAidezNousForm();
+            Reponse repEmail = null;
 
+            if (repAidez.reponse != null)
+            {
+                repEmail = TravailClient.showEmailForm();
+            }
+
+            reponsesDonnees.Add(repAidez);
+            reponsesDonnees.Add(repEmail);
+
+
+            currentUser.score = TravailClient.calculScore(reponsesDonnees);
+
+            //enregistrer en BDD 
+            accesMetier.storeScore(currentUser);
+
+            //calculer classement
+            Classement classement = accesMetier.getClassement();
+
+
+            ClassementForm CF = new ClassementForm(classement,currentUser);
+            CF.Show();
         }
 
 

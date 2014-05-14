@@ -83,6 +83,16 @@ namespace Ways.Middleware.Composant_d_acces_metier
             Mappage.supprQuestion(IDQuestion, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
         }
 
+        public static void storeScore(User user)
+        {
+
+        }
+
+        public static Classement getClassement()
+        {
+            return new Classement(null);
+        }
+
 
 
 

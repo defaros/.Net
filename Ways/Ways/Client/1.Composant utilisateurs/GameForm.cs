@@ -126,26 +126,7 @@ namespace Ways.Client.Composant_utilisateurs
             }
             else
             {
-                Reponse repAidez = TravailClient.showAidezNousForm();
-                Reponse repEmail = null;
-
-                if (repAidez.reponse != null)
-                {
-                    repEmail = TravailClient.showEmailForm();
-                }
-
-                reponsesDonnees.Add(repAidez);
-                reponsesDonnees.Add(repEmail);
-
-
-                 currentUser.score = TravailClient.calculScore(reponsesDonnees);
-
-                //enregistrer en BDD 
-                //calculer classement
-
-
-                /*ClassementForm CF = new ClassementForm();
-                CF.Show();*/
+                TravailClient.finDeLaPartie(reponsesDonnees, currentUser);
                 this.Hide();
             }
 
