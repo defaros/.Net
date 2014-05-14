@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CryptAPI">
+      <HintPath>..\..\waysExample\CryptAPI_3.0\CryptAPI_3.0\CryptAPI\src\Tests\CryptAPI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -110,6 +113,11 @@
     <Compile Include="Middleware\6.Metier\Controleur workflow\controleur.cs" />
     <Compile Include="Middleware\6.Metier\Mappage\Mappage.cs" />
     <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\CAD.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\Crypt.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\CrypterMDP.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\MailSmtp.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\MSG.cs" />
+    <Compile Include="Middleware\7.Service etendu\Composant d%27acces aux donnees\XML.cs" />
     <Compile Include="Middleware\7.Service etendu\Composant de communication\ErrorMessage.cs" />
     <Compile Include="Middleware\7.Service etendu\Composant de communication\InfoMessage.cs" />
     <Compile Include="Program.cs" />
