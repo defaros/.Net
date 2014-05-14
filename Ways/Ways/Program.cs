@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ways.Client._1.Composant_utilisateurs;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
 
@@ -24,18 +25,15 @@ namespace Ways
 
 
             //Tests pour la form question
-            Reponse rep = new Reponse();
-            Reponse rep2 = new Reponse();
-
-            rep.reponse="a";
-            rep2.reponse="b";
+            Reponse rep = new Reponse("a",0);
+            Reponse rep2 = new Reponse("b",1);
 
             Reponse[] reps = new Reponse[2];
             reps[0] = rep;
             reps[1] = rep2;
 
 
-            Question question = new Question("blob", null,reps);
+            Question question = new Question(0,"blob", null,reps);
             Question[] quests = new Question[1];
             quests[0] = question;
             List<Question> questions = new List<Question>();
@@ -43,7 +41,15 @@ namespace Ways
 
             //Application.Run(new GameForm(quests, 1));
 
-            Application.Run(new AdminForm(questions, null, null));
+            //Application.Run(new AdminForm(questions, null, null));
+
+            string s = "Invitation evenement eXia du " + DateTime.Today;
+
+            DateTime thisDate1 = DateTime.Today;
+            Console.WriteLine("Today is " + thisDate1.ToString(" dd/MM/yyyy") + ".");
+            
+
+            Application.Run(new EmailsForm());
         }
     }
 }

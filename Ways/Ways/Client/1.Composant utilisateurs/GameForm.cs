@@ -119,7 +119,6 @@ namespace Ways.Client.Composant_utilisateurs
             }
             else
             {
-                
                 ClassementForm CF = new ClassementForm(null,null);
                 CF.Show();
                 this.Hide();

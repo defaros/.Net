@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ways.Client._1.Composant_utilisateurs;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
 using Ways.Middleware.Composant_d_acces_metier;
@@ -18,7 +19,7 @@ namespace Ways.Client.Composant_de_travail
         
 
 
-
+        /*********************************MainForm**************************************************/
         
 
 
@@ -53,15 +54,35 @@ namespace Ways.Client.Composant_de_travail
         }
 
 
-        //Verifie les informations Administrateurs
-        public static void verifAdmin(string identifiant, string password)
+        public static bool verifSurnom(string name)
         {
+            return accesMetier.verifSurnom(name);
+        }
 
+        public static bool verifSurnomDoublons(string name)
+        {
+            return accesMetier.verifSurnomDoublons(name);
+        }
+
+        //Verifie les informations Administrateurs
+        public static bool verifLogin(string identifiant, string psw)
+        {
+            return accesMetier.verifLogin(identifiant, psw);
         }
 
 
 
-        public static int calculerScore(List<Reponse> reps)
+
+
+        /***************************GameForm******************************/
+
+        public static void showClassementForm(List<Reponse> reps)
+        {
+            accesMetier.showClassement(reps);
+        }
+
+
+        public static int calculerScore()
         {
             int score = 0;
 
@@ -80,22 +101,9 @@ namespace Ways.Client.Composant_de_travail
             accesMetier.saveEmailConfig(URL, port, compte, mdp);
         }
 
-        public static bool verifSurnom(string name)
-        {
-            return accesMetier.verifSurnom(name);
-        }
+        
 
-        public static bool verifSurnomDoublons(string name)
-        {
-            return accesMetier.verifSurnomDoublons(name);
-        }
-
-        public static bool verifLogin(string identifiant, string psw)
-        {
-            return accesMetier.verifLogin(identifiant, psw);
-        }
-
-        public static void modifQuestionJeu(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
             //Si IDQuestion est <0 alors nouvelle question
             int num;
@@ -107,7 +115,40 @@ namespace Ways.Client.Composant_de_travail
             {
                 // code si conversion KO
             }
+
+
         }
+
+        public static void supprQuestion(int IDQuestion)
+        {
+
+        }
+
+
+
+        /********************************************************AidezNousForm******************************************************/
+
+        public static void showAidezNousForm()
+        {
+            AidezNousForm AideForm = new AidezNousForm();
+            AideForm.ShowDialog();
+        }
+
+
+
+        /********************************************************EmailForm******************************************************/
+
+
+        public static void showEmailForm()
+        {
+            EmailsForm emailForm = new EmailsForm();
+            emailForm.ShowDialog();
+        }
+
+
+
+
+        
 
     }
 }

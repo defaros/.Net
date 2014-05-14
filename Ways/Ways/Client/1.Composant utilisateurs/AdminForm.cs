@@ -15,7 +15,7 @@ namespace Ways.Client.Composant_utilisateurs
 {
     public partial class AdminForm : Form
     {
-        Question newQuest = new Question(0, "Nouvelle question", null, null);
+        Question newQuest = new Question(-1, "Nouvelle question", null, null);
 
         public AdminForm(List<Question> questionsJeu, List<Question> questionsOrientation, List<string> paramEmail)
         {
@@ -111,32 +111,38 @@ namespace Ways.Client.Composant_utilisateurs
 
         private void buttonValiderJeu_Click(object sender, EventArgs e)
         {
+            //Modifie ou créé une question de type Jeu
             Question currentQuestion = (Question)comboBoxJeu.SelectedItem;
 
-            //Update ou créé une question de type jeu
-            if ((Question)comboBoxJeu.SelectedItem == newQuest)
-            {
-                TravailClient.modifQuestionJeu(-1,richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
-            }
-            else
-            {
-                TravailClient.modifQuestionJeu(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
-            }
+            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            
         }
 
         private void buttonSupprJeu_Click(object sender, EventArgs e)
         {
-            //Suppr une qustion de type jeu
+            //Suppr une qustion de type Jeu
+            Question currentQuestion = (Question)comboBoxJeu.SelectedItem;
+
+            TravailClient.supprQuestion(currentQuestion.ID);
         }
 
         private void buttonValiderOrientation_Click(object sender, EventArgs e)
         {
-            //Update ou créé une question de type orientation
+            //Modifie ou créé une question de type Orientation
+            Question currentQuestion = (Question)comboBoxOrientation.SelectedItem;
+
+            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            
         }
 
         private void buttonSupprOrientation_Click(object sender, EventArgs e)
         {
-            //Suppr une qustion de type orientation
+            //Suppr une qustion de type Orientation
+            Question currentQuestion = (Question)comboBoxOrientation.SelectedItem;
+
+            TravailClient.supprQuestion(currentQuestion.ID);
+
+            
         }
     }
 }

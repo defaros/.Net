@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ways.Client.Composant_de_travail;
+using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Middleware._6.Metier.Controleur_workflow;
+using Ways.Middleware.Composant_d_acces_metier;
 using Ways.Middleware.Metier.Composant_technique;
 using Ways.Middleware.Metier.Mappage;
 
@@ -59,7 +61,7 @@ namespace Ways.Middleware.Groupe_de_processus
 
         public static bool isThatNameAlreadyUse(string name)
         {
-            string[] allNames = Requetes.getAllNames();
+            string[] allNames = Mappage.getAllNames();
 
             foreach (string varName in allNames)
             {
@@ -72,14 +74,15 @@ namespace Ways.Middleware.Groupe_de_processus
             return false;
         }
 
-        public static void saveEmailConfig(string URL, string port, string compte, string mdp)
-        {
-            technique.saveEmailConfig(URL, port, compte, mdp);
-        }
 
-        public static bool verifLogin(string identifiant, string psw)
+
+
+        public static void showClassement(List<Reponse> reps)
         {
-            return controleur.verifLogin(identifiant, psw);
+            accesMetier.showAidezNous();
+            accesMetier.showEmailForm();
+            technique.calculScore(reps);
+            accesMetier.showClassementForm();
         }
 
     }

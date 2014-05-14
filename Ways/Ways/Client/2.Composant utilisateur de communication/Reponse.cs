@@ -8,8 +8,9 @@ namespace Ways.Client.Composant_utilisateur_de_communication
 {
     public class Reponse
     {
-        //description d'une réponse avec ces points
+        //description d'une réponse avec ses points
 
+        public int ID;
         public string reponse;
         public int points;
 
