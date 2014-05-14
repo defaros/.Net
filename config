@@ -1,0 +1,17 @@
+[core]
+	bare = false
+	repositoryformatversion = 0
+	filemode = false
+	symlinks = false
+	ignorecase = true
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/defaros/.Net.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[http]
+    proxy = http://ahonignorth:leeloogay67@10.67.128.1:3128/
+[https]
+    proxy = https://ahonignorth:leeloogay67@10.67.128.1:3128/
