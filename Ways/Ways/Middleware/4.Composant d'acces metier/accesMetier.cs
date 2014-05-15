@@ -55,6 +55,11 @@ namespace Ways.Middleware.Composant_d_acces_metier
             processus.showAdminForm();
         }
 
+        public static void showAdminForm(List<Question> listQuestJeu, List<Question> listQuestOrientation, string[] paramEmail)
+        {
+            TravailClient.showAdminForm();
+        }
+
 
         public static void sendEmail(string mailDestinataire, Filiere metier)
         {
@@ -112,13 +117,12 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
         public static void storeScore(User user)
         {
-
+            Mappage.storeScore(user);
         }
 
         public static Classement getClassement()
         {
             return Mappage.getClassement();
-            return null;
         }
 
         public static Question[] getAllQuestionsOfType(string type)

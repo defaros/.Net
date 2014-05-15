@@ -24,6 +24,8 @@ namespace Ways.Client._1.Composant_utilisateurs
         {
             InitializeComponent();
 
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
 
             goodToGo = true;
             goodToSend = true;

@@ -20,7 +20,7 @@ namespace Ways
         [STAThread]
         static void Main()
         {
-            // Création des fichiers XML au démarrage du programme 
+            // Création le fichier de config BDD XML au démarrage du programme 
             XML oXml = new XML();
             MSG oMsg = new MSG();
             oMsg.SetData("source", "10.67.144.136");
@@ -37,16 +37,22 @@ namespace Ways
             //MailSmtp oMailSmtp = new MailSmtp();
             //oMailSmtp.send(oMsg);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());/*
 
-            
+            //Test de la connexion
+            CAD cad = new CAD();
+            if (cad.openConnection(new MSG()))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
 
 
+
+            /*
             //Tests pour les forms
-            Reponse rep = new Reponse("a",0);
-            Reponse rep2 = new Reponse("b",1);
+            Reponse rep = new Reponse("a",0,0);
+            Reponse rep2 = new Reponse("b",1,1);
 
             Reponse[] reps = new Reponse[2];
             reps[0] = rep;
@@ -59,12 +65,11 @@ namespace Ways
             List<Question> questions = new List<Question>();
             questions.Add(question);
 
+            string[] eMails = new string[4];
 
 
 
-            //Application.Run(new GameForm(quests, 1));
-
-            //Application.Run(new AdminForm(questions, null, null));
+            Application.Run(new AdminForm(questions, questions, eMails));
 
             string s = "Invitation evenement eXia du " + DateTime.Today;
 
@@ -86,6 +91,9 @@ namespace Ways
             list.Add(user1);
             list.Add(user2);
             list.Add(user3);
+
+
+            Application.Run(new GameForm(user1, quests, "Jeu"));
 
             Classement cl = new Classement(list);
 

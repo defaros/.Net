@@ -34,8 +34,8 @@
             this.buttonAdmin = new System.Windows.Forms.Button();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonClassement = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelHello
@@ -114,20 +114,6 @@
             this.labelName.TabIndex = 6;
             this.labelName.Text = "Surnom: ";
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 60.25F);
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.richTextBox1.Location = new System.Drawing.Point(310, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(236, 106);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "Ways";
-            this.richTextBox1.BackColorChanged += new System.EventHandler(this.labelHello_Click);
-            // 
             // buttonClassement
             // 
             this.buttonClassement.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -143,14 +129,25 @@
             this.buttonClassement.UseVisualStyleBackColor = false;
             this.buttonClassement.Click += new System.EventHandler(this.buttonClassement_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 45F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(284, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 74);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Ways";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(807, 321);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonClassement);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonAdmin);
@@ -160,7 +157,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
-            this.Text = "GameForm";
+            this.Text = "Ways";
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
@@ -176,7 +173,7 @@
         private System.Windows.Forms.Button buttonAdmin;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button buttonClassement;
+        private System.Windows.Forms.Label label1;
     }
 }

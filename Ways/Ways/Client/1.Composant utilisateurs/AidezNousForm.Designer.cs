@@ -49,6 +49,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.labelErrorPrenom = new System.Windows.Forms.Label();
             this.labelErrorNom = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -200,12 +202,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(636, 391);
+            this.label6.Location = new System.Drawing.Point(508, 391);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(402, 20);
+            this.label6.Size = new System.Drawing.Size(614, 20);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Les adresses e-mail ne seront pas conservées en base";
+            this.label6.Text = "Les adresses e-mail et vos données personnelles ne seront pas conservées en base";
             // 
             // labelError2
             // 
@@ -241,7 +243,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(631, 355);
+            this.label8.Location = new System.Drawing.Point(634, 355);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(411, 20);
@@ -272,12 +274,34 @@
             this.labelErrorNom.Text = "Nom invalide";
             this.labelErrorNom.Visible = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(801, 136);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 20);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "1er Email:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(801, 220);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 20);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "2nd Email:";
+            // 
             // AidezNousForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1135, 446);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.labelErrorNom);
             this.Controls.Add(this.labelErrorPrenom);
             this.Controls.Add(this.label8);
@@ -332,5 +356,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelErrorPrenom;
         private System.Windows.Forms.Label labelErrorNom;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

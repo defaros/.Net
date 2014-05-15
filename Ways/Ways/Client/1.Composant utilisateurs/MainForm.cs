@@ -30,7 +30,6 @@ namespace Ways.Client.Composant_utilisateurs
 
         private void buttonJeu_Click(object sender, EventArgs e)
         {
-
             //vérification que le surnom est valide (avec gestion dans la BDD
             if (TravailClient.verifSurnomDoublons(textBoxName.Text))
             {

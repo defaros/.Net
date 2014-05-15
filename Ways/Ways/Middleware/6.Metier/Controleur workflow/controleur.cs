@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Middleware.Metier.Mappage;
 
@@ -16,14 +17,14 @@ namespace Ways.Middleware._6.Metier.Controleur_workflow
 
         public static bool verifSurnom(string name)
         {
-            if (name == null)
+            if (name == "")
             {
-                //display ErrorMessageSurnomNull
+                MessageBox.Show("Entrez un surnom!");
                 return false;
             }
             else if (name.Length > 20)
             {
-                //display ErrorMessageSurnomLong
+                MessageBox.Show("Entrez un surnom de moins de 20 caractères!");
                 return false;
             }
             else
@@ -54,6 +55,7 @@ namespace Ways.Middleware._6.Metier.Controleur_workflow
             {
                 return true;
             }
+
 
         }
 

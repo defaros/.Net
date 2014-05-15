@@ -33,14 +33,14 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.buttonValider = new System.Windows.Forms.Button();
-            this.richTextBoxType = new System.Windows.Forms.RichTextBox();
-            this.textBoxQuestion = new System.Windows.Forms.TextBox();
+            this.richTextBoxType = new System.Windows.Forms.Label();
+            this.textBoxQuestion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(361, 195);
+            this.radioButton1.Location = new System.Drawing.Point(96, 188);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(116, 23);
@@ -52,7 +52,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(361, 230);
+            this.radioButton2.Location = new System.Drawing.Point(96, 223);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(116, 23);
@@ -64,7 +64,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(361, 265);
+            this.radioButton3.Location = new System.Drawing.Point(96, 258);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(116, 23);
@@ -76,7 +76,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(361, 301);
+            this.radioButton4.Location = new System.Drawing.Point(96, 294);
             this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(116, 23);
@@ -101,28 +101,22 @@
             // 
             // richTextBoxType
             // 
-            this.richTextBoxType.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBoxType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxType.Enabled = false;
-            this.richTextBoxType.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxType.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.richTextBoxType.Location = new System.Drawing.Point(249, 38);
-            this.richTextBoxType.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBoxType.AutoSize = true;
+            this.richTextBoxType.Font = new System.Drawing.Font("Century Gothic", 30F);
+            this.richTextBoxType.Location = new System.Drawing.Point(289, 42);
             this.richTextBoxType.Name = "richTextBoxType";
-            this.richTextBoxType.Size = new System.Drawing.Size(372, 66);
-            this.richTextBoxType.TabIndex = 7;
-            this.richTextBoxType.Text = "Questionnaire Jeu";
+            this.richTextBoxType.Size = new System.Drawing.Size(247, 49);
+            this.richTextBoxType.TabIndex = 9;
+            this.richTextBoxType.Text = "Section Jeu";
             // 
             // textBoxQuestion
             // 
-            this.textBoxQuestion.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxQuestion.Enabled = false;
-            this.textBoxQuestion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBoxQuestion.Location = new System.Drawing.Point(361, 131);
+            this.textBoxQuestion.AutoSize = true;
+            this.textBoxQuestion.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Underline);
+            this.textBoxQuestion.Location = new System.Drawing.Point(43, 129);
             this.textBoxQuestion.Name = "textBoxQuestion";
-            this.textBoxQuestion.Size = new System.Drawing.Size(100, 17);
-            this.textBoxQuestion.TabIndex = 8;
+            this.textBoxQuestion.Size = new System.Drawing.Size(178, 33);
+            this.textBoxQuestion.TabIndex = 10;
             this.textBoxQuestion.Text = "La question :";
             // 
             // GameForm
@@ -158,7 +152,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Button buttonValider;
-        private System.Windows.Forms.RichTextBox richTextBoxType;
-        private System.Windows.Forms.TextBox textBoxQuestion;
+        private System.Windows.Forms.Label richTextBoxType;
+        private System.Windows.Forms.Label textBoxQuestion;
     }
 }

@@ -33,14 +33,15 @@
             this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPsw = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSend
             // 
             this.buttonSend.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSend.Location = new System.Drawing.Point(164, 280);
+            this.buttonSend.Location = new System.Drawing.Point(165, 260);
             this.buttonSend.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(100, 30);
@@ -87,18 +88,28 @@
             this.textBoxPsw.Size = new System.Drawing.Size(132, 23);
             this.textBoxPsw.TabIndex = 5;
             // 
-            // richTextBox1
+            // label3
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30.25F);
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 100);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "Authentification Admin";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 25F);
+            this.label3.Location = new System.Drawing.Point(18, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(394, 40);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Authentification Admin";
+            // 
+            // buttonAnnuler
+            // 
+            this.buttonAnnuler.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAnnuler.Location = new System.Drawing.Point(165, 298);
+            this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAnnuler.Name = "buttonAnnuler";
+            this.buttonAnnuler.Size = new System.Drawing.Size(100, 30);
+            this.buttonAnnuler.TabIndex = 8;
+            this.buttonAnnuler.Text = "Annuler";
+            this.buttonAnnuler.UseVisualStyleBackColor = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // LoginForm
             // 
@@ -106,7 +117,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(424, 341);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.buttonAnnuler);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPsw);
             this.Controls.Add(this.label1);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.TextBox textBoxIdentifiant;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxPsw;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonAnnuler;
     }
 }

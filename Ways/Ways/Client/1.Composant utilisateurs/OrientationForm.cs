@@ -31,7 +31,6 @@ namespace Ways.Client.Composant_utilisateurs
 
         private void buttonRetour_Click(object sender, EventArgs e)
         {
-            TravailClient.showMainForm();
             this.Close();
         }
     }

@@ -17,9 +17,16 @@ namespace Ways.Client.Composant_utilisateurs
     {
         Question newQuest = new Question(-1, "Nouvelle question", null, null);
 
-        public AdminForm(List<Question> questionsJeu, List<Question> questionsOrientation, List<string> paramEmail)
+        public AdminForm(List<Question> questionsJeu, List<Question> questionsOrientation, string[] paramEmail)
         {
             InitializeComponent();
+
+            //Initialisation textBox email
+
+            textBoxURL.Text = paramEmail[0];
+            textBoxPort.Text = paramEmail[1];
+            textBoxCompte.Text = paramEmail[2];
+            textBoxPass.Text = paramEmail[3];
 
 
             //Initialisation des combobox pour avoir la possibilité de créer une nouvelle question

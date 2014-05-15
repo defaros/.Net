@@ -15,8 +15,7 @@ namespace Ways.Middleware.Metier.Mappage
         //Redirige les requetes faites à la BDD aux procédures stockées correspondantes
 
 
-
-
+        /****************************************User****************************************/
         public static User[] getAllUsers()
         {
             User[] allNames = null;
@@ -24,6 +23,48 @@ namespace Ways.Middleware.Metier.Mappage
             return allNames;
         }
 
+        public static void storeScore(User user)
+        {
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            SqlConnection conn = cad.oConn;
+            using (SqlCommand cmd = new SqlCommand("storeScore", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@pseudoUser", user));
+                cmd.ExecuteNonQuery();
+            }
+            cad.closeConnection();
+        }
+
+        public static Classement getClassement()
+        {
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            SqlConnection conn = cad.oConn;
+            SqlDataReader reader;
+            using (SqlCommand cmd = new SqlCommand("getClassement", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                reader = cmd.ExecuteReader();
+            }
+            cad.closeConnection();
+
+            Classement classement = new Classement(null);
+            int placement = 0;
+
+            while (reader.Read())
+            {
+                placement ++;
+                int score = reader.GetInt32(reader.GetOrdinal("score_user"));
+                string pseudo = reader.GetString(reader.GetOrdinal("pseudo_user"));
+                User user = new User(pseudo, score, placement);
+                classement.users.Add(user);
+            }
+
+            return classement;
+
+        }
 
 
 

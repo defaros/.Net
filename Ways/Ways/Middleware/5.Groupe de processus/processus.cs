@@ -75,14 +75,24 @@ namespace Ways.Middleware.Groupe_de_processus
         {
             List<Question> listQuestJeu;
             List<Question> listQuestOrientation;
-            List<string> paramEmail;
+            string[] paramEmail = new string[4];
 
             listQuestJeu = Mappage.getAllQuestionsOfType("Jeu");
             listQuestOrientation = Mappage.getAllQuestionsOfType("Orientation");
 
             XML xml = new XML();
             MSG oMSG = new MSG();
-            xml.ReadConfigDecrypted(oMSG);
+            oMSG = xml.ReadConfigSmtpDecrypted(oMSG);
+
+            paramEmail[0] = (oMSG.GetData("host").ToString());
+            paramEmail[1] = (oMSG.GetData("port").ToString());
+            paramEmail[2] = (oMSG.GetData("compte").ToString());
+            paramEmail[3] = (oMSG.GetData("pwd").ToString());
+
+            accesMetier.showAdminForm();
+            
+            
+            
         }
 
 

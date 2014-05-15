@@ -34,5 +34,10 @@ namespace Ways.Client.Composant_utilisateurs
             }
 
         }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

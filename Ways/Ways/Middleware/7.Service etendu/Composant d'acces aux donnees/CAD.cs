@@ -30,7 +30,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             this.oDA = null;
         }
 
-        public void openConnection(MSG oMsg)
+        public bool openConnection(MSG oMsg)
         {
             try
             {
@@ -41,10 +41,12 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                 oConn.ConnectionString =
                     @"Data Source=" + oMsg.GetData("source") + @";Initial Catalog=" + oMsg.GetData("database") + @";Persist Security Info=True;User ID=" + oMsg.GetData("login") + @";Password=" + oMsg.GetData("pwd");
                 oConn.Open();
+                return true;
             }
             catch (Exception e)
             {
                 MessageBox.Show("ERREUR:\n" + e.Message);
+                return false;
             }
         }
 

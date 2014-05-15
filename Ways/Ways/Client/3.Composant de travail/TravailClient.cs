@@ -152,6 +152,11 @@ namespace Ways.Client.Composant_de_travail
             accesMetier.showAdminForm();
         }
 
+        public static void showAdminForm(List<Question> listQuestJeu, List<Question> listQuestOrientation, string[] paramEmail)
+        {
+            AdminForm adForm = new AdminForm(listQuestJeu, listQuestOrientation, paramEmail);
+        }
+
 
         public static void saveEmailConfig(string URL, string port, string compte, string mdp)
         {
