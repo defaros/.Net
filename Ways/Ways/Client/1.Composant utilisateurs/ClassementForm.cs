@@ -40,16 +40,25 @@ namespace Ways.Client.Composant_utilisateurs
 
         public void displayUserScore(User curentUser)
         {
-            //Display le score d'un User
-            labelNom.Text = curentUser.Nom;
-            labelPosition.Text = curentUser.Place.ToString();
-            textBoxScore.Text = curentUser.Score.ToString();
+            if (curentUser != null)
+            {
+                //Display le score d'un User
+                labelNom.Text = curentUser.Nom;
+                labelPosition.Text = curentUser.Place.ToString();
+                textBoxScore.Text = curentUser.Score.ToString();
+            }
+            else
+            {
+                labelNom.Visible = false;
+                labelPosition.Visible = false;
+                textBoxScore.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            displayClassement(tempClass);
+            this.Close();
         }
 
         private void UpdateDataGridViewParam()

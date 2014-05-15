@@ -135,48 +135,18 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         }
 
 
-        public MSG WriteConfigSmtpCrypted(MSG oMsg)
-        {
-            oMsg.SetData("host", Crypt.EncryptAES((string)oMsg.GetData("host")));
-            oMsg.SetData("port", Crypt.EncryptAES((string)oMsg.GetData("port")));
+        
+
+        
+
+        
 
 
-            return WriteSmtpXml(oMsg);
-        }
 
-        public MSG WriteSmtpXml(MSG oMsg)
-        {
-            try
-            {
-                document = new XDocument(
-                    new XElement("config",
-                        new XComment("Host"),
-                        new XElement("host", new XCData((string)oMsg.GetData("host"))),
-                        new XComment("Port"),
-                        new XElement("port", new XCData((string)oMsg.GetData("port")))
 
-                    )
-                );
 
-                document.Save(@"E:\Depot\.Net\Ways\Configsmtp.xml");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("ERREUR:\n" + e.Message);
-            }
 
-            return oMsg;
-        }
-
-        public MSG ReadConfigSmtpDecrypted(MSG oMsg)
-        {
-            oMsg = ReadSmtpXml(oMsg);
-
-            oMsg.SetData("host", Crypt.DecryptAES((string)oMsg.GetData("host")));
-            oMsg.SetData("port", Crypt.DecryptAES((string)oMsg.GetData("port")));
-
-            return oMsg;
-        }
+        /********************************************SMTP***************************************************/
 
         public MSG ReadSmtpXml(MSG oMsg)
         {
@@ -184,7 +154,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             {
 
                 // Charge le fichier XML de config
-                XDocument document = XDocument.Load(@"E:\Depot\.Net\Ways\Configsmtp.xml");
+                XDocument document = XDocument.Load(@"C:\Ways\Configsmtp.xml");
 
                 // Récupère le chemin source du serveur
                 string hostC = "";
@@ -212,6 +182,32 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 
                 oMsg.SetData("portC", portC);
 
+                // Récupère le compte
+                string compteC = "";
+                IEnumerable<XElement> compte = from s in document.Root.Descendants()
+                                             where s.Name == "compte"
+                                             select s;
+                foreach (XElement e in compte)
+                {
+                    // Store the value
+                    compteC = e.Value;
+                }
+
+                oMsg.SetData("compteC", compteC);
+
+                // Récupère le mot de passe
+                string pwdC = "";
+                IEnumerable<XElement> pwd = from s in document.Root.Descendants()
+                                             where s.Name == "pwd"
+                                             select s;
+                foreach (XElement e in pwd)
+                {
+                    // Store the value
+                    pwdC = e.Value;
+                }
+
+                oMsg.SetData("pwdC", pwdC);
+
             }
             catch (Exception e)
             {
@@ -220,5 +216,64 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 
             return oMsg;
         }
+
+
+
+        public MSG ReadConfigSmtpDecrypted(MSG oMsg)
+        {
+            oMsg = ReadSmtpXml(oMsg);
+
+            oMsg.SetData("host", Crypt.DecryptAES((string)oMsg.GetData("hostC")));
+            oMsg.SetData("port", Crypt.DecryptAES((string)oMsg.GetData("portC")));
+            oMsg.SetData("compte", Crypt.DecryptAES((string)oMsg.GetData("compteC")));
+            oMsg.SetData("pwd", Crypt.DecryptAES((string)oMsg.GetData("pwdC")));
+
+            return oMsg;
+        }
+
+
+
+        public MSG WriteSmtpXml(MSG oMsg)
+        {
+            try
+            {
+                document = new XDocument(
+                    new XElement("config",
+                        new XComment("Host"),
+                        new XElement("host", new XCData((string)oMsg.GetData("host"))),
+                        new XComment("Port"),
+                        new XElement("port", new XCData((string)oMsg.GetData("port"))),
+                        new XComment("Compte"),
+                        new XElement("compte", new XCData((string)oMsg.GetData("compte"))),
+                        new XComment("Password"),
+                        new XElement("pwd", new XCData((string)oMsg.GetData("pwd")))
+
+                    )
+                );
+
+                document.Save(@"C:\Ways\Configsmtp.xml");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ERREUR:\n" + e.Message);
+            }
+
+            return oMsg;
+        }
+
+
+        public MSG WriteConfigSmtpCrypted(MSG oMsg)
+        {
+            oMsg.SetData("host", Crypt.EncryptAES((string)oMsg.GetData("host")));
+            oMsg.SetData("port", Crypt.EncryptAES((string)oMsg.GetData("port")));
+            oMsg.SetData("compte", Crypt.EncryptAES((string)oMsg.GetData("login")));
+            oMsg.SetData("pwd", Crypt.EncryptAES((string)oMsg.GetData("pwd")));
+
+
+            return WriteSmtpXml(oMsg);
+        }
+
+
+
     }
 }

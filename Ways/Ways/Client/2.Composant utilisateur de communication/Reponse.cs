@@ -14,10 +14,11 @@ namespace Ways.Client.Composant_utilisateur_de_communication
         public string reponse;
         public int points;
 
-        public Reponse(string newReponse, int newPoints)
+        public Reponse(string reponse, int points, int ID)
         {
-            this.points = newPoints;
-            this.reponse = newReponse;
+            this.points = points;
+            this.reponse = reponse;
+            this.ID = ID;
         }
 
         //Permet l'affichage dans les combobox

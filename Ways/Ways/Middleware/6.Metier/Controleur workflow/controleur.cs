@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Middleware.Metier.Mappage;
 
 namespace Ways.Middleware._6.Metier.Controleur_workflow
@@ -58,13 +59,13 @@ namespace Ways.Middleware._6.Metier.Controleur_workflow
 
         public static bool isThatNameAlreadyUse(string name)
         {
-            string[] allNames = Mappage.getAllNames();
+            User[] allUser = Mappage.getAllUsers();
 
-            foreach (string varName in allNames)
+            foreach (User user in allUser)
             {
-                if (name == varName)
+                if (name == user.Nom)
                 {
-                    return false;
+                    return true;
                 }
             }
 

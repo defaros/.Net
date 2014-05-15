@@ -87,8 +87,31 @@ namespace Ways.Middleware.Metier.Mappage
 
         public static List<Question> getAllQuestionsOfType(string type)
         {
-            return null;
+            List<Question> list = new List<Question>();
+            SqlDataReader reader;
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            SqlConnection conn = cad.oConn;
+            using (SqlCommand cmd = new SqlCommand("GetAllQuestOfType", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@typeQuest", type));
+
+                reader = cmd.ExecuteReader();
+            }
+
+            while (reader.Read())
+            {
+                int id = reader.GetInt32(reader.GetOrdinal("id_question"));
+                string enonce = reader.GetString(reader.GetOrdinal("enonce_question"));
+                Question quest = new Question(id,enonce,type,null);
+                list.Add(quest);
+            }
+            cad.closeConnection();
+
+            return list;
         }
+
 
 
 
@@ -151,9 +174,60 @@ namespace Ways.Middleware.Metier.Mappage
             List<int> ids = new List<int>();
 
             //Recupère les ID reponses en fonction de l'Id de la question
+            SqlDataReader reader;
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            SqlConnection conn = cad.oConn;
+            using (SqlCommand cmd = new SqlCommand("IdQuestIdRep", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@idQuest", IDQuestion));
+
+                reader = cmd.ExecuteReader();
+            }
+
+            while (reader.Read())
+            {
+                ids.Add(reader.GetInt32(reader.GetOrdinal("id_reponse")));
+            }
+
+
 
             return ids;
         }
+
+        public static Reponse[] getReponseByIdQuestion(int IDQuestion)
+        {
+            List<Reponse> reps = new List<Reponse>();
+            SqlDataReader reader;
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            SqlConnection conn = cad.oConn;
+            using (SqlCommand cmd = new SqlCommand("getRepByIdQuest", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@IDQuestion", IDQuestion));
+
+                reader = cmd.ExecuteReader();
+            }
+
+            while (reader.Read())
+            {
+                Reponse rep = new Reponse(null, 0,-1);
+
+                rep.ID = reader.GetInt32(reader.GetOrdinal("id_reponse"));
+                rep.reponse = reader.GetString(reader.GetOrdinal("texte_reponse"));
+                rep.points = reader.GetInt32(reader.GetOrdinal("point_reponse"));
+
+                reps.Add(rep);
+            }
+
+            Reponse[] tableauRep = reps.ToArray();
+
+            return tableauRep;
+        }
+
+
 
         /****************************************Filiere****************************************/
 
@@ -192,19 +266,25 @@ namespace Ways.Middleware.Metier.Mappage
             CAD cad = new CAD();
             cad.openConnection(new MSG());
             SqlConnection conn = cad.oConn;
+            SqlDataReader data;
             using (SqlCommand cmd = new SqlCommand("ConAdmin", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@loginAdmin", identifiant));
                 cmd.Parameters.Add(new SqlParameter("@mdpAdmin", psw));
 
-                cmd.ExecuteNonQuery();
+                data = cmd.ExecuteReader();
+                cad.closeConnection();
             }
-            cad.closeConnection();
 
-            return true;
+            if (data == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
-
-
     }
 }

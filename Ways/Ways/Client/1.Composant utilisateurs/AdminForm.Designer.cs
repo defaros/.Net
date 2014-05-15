@@ -199,9 +199,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(67, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 19);
+            this.label2.Size = new System.Drawing.Size(38, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "URL";
+            this.label2.Text = "Host";
             // 
             // tabPageJeu
             // 

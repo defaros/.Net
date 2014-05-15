@@ -28,28 +28,6 @@ namespace Ways.Client.Composant_de_travail
             main.Show();
         }
 
-        //Lance une GameForm en mode orientation
-        public static void lancerOrientation(User currentUser)
-        {
-            //Type 0 = Orientation
-            string type = "Orientation";
-            Question[] questions = accesMetier.getAllQuestionsOfType(type);
-            GameForm GF = new GameForm(currentUser,questions, type);
-            GF.ShowDialog();
-
-        }
-
-
-        //Lance une GameForm en mode jeu
-        public static void lancerJeu(User currentUser)
-        {
-            //Type 1 = Jeu
-            string type = "Jeu";
-            Question[] questions = accesMetier.getAllQuestionsOfType(type);
-            GameForm GF = new GameForm(currentUser, questions, type);
-            GF.ShowDialog();         
-        }
-
 
         //Lance l'interface Administrateur
         public static void lancerAdmin()
@@ -96,6 +74,28 @@ namespace Ways.Client.Composant_de_travail
             return new Classement(null);
         }
 
+        //Lance une GameForm en mode orientation
+        public static void lancerOrientation(User currentUser)
+        {
+            //Type 0 = Orientation
+            string type = "Orientation";
+            Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            GameForm GF = new GameForm(currentUser, questions, type);
+            GF.ShowDialog();
+
+        }
+
+
+        //Lance une GameForm en mode jeu
+        public static void lancerJeu(User currentUser)
+        {
+            //Type 1 = Jeu
+            string type = "Jeu";
+            Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            GameForm GF = new GameForm(currentUser, questions, type);
+            GF.ShowDialog();
+        }
+
         
 
         
@@ -130,6 +130,7 @@ namespace Ways.Client.Composant_de_travail
         public static void showClassementForm(Classement classement, User currentUser)
         {
             ClassementForm CLForm = new ClassementForm(classement, currentUser);
+            CLForm.ShowDialog();
         }
 
 
@@ -185,7 +186,7 @@ namespace Ways.Client.Composant_de_travail
 
         public static void supprQuestion(int ID)
         {
-
+            accesMetier.supprQuestion(ID);
         }
 
 

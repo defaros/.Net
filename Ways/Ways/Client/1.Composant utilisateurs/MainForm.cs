@@ -47,6 +47,13 @@ namespace Ways.Client.Composant_utilisateurs
 
 
 
+        private void buttonClassement_Click(object sender, EventArgs e)
+        {
+            TravailClient.finDeLaPartie(null, null);
+        }
+
+
+
 
 
 

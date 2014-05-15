@@ -23,24 +23,34 @@ namespace Ways.Middleware.Groupe_de_processus
 
         public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
         {
-            Reponse repAidez = accesMetier.showAidezNous();
-            if (repAidez.points == -1)
+            if (currentUser == null || reponsesDonnees == null)
             {
-                accesMetier.showMainForm();
+                //calculer classement
+                Classement classement = accesMetier.getClassement();
+
+                accesMetier.showClassementForm(classement, null);
             }
+            else
+            {
+                Reponse repAidez = accesMetier.showAidezNous();
+                if (repAidez.points == -1)
+                {
+                    return;
+                }
 
-            reponsesDonnees.Add(repAidez);
+                reponsesDonnees.Add(repAidez);
 
 
-            currentUser.Score = technique.calculScore(reponsesDonnees);
+                currentUser.Score = technique.calculScore(reponsesDonnees);
 
-            //enregistrer en BDD 
-            accesMetier.storeScore(currentUser);
+                //enregistrer en BDD 
+                accesMetier.storeScore(currentUser);
 
-            //calculer classement
-            Classement classement = accesMetier.getClassement();
+                //calculer classement
+                Classement classement = accesMetier.getClassement();
 
-            accesMetier.showClassementForm(classement, currentUser);
+                accesMetier.showClassementForm(classement, currentUser);
+            }
         }
 
         public static void finDuQuizz(List<Reponse> reponsesDonnees, User currentUser)
@@ -81,7 +91,17 @@ namespace Ways.Middleware.Groupe_de_processus
         public static void sendEmail(string mailDestinataire, string NomExpediteur, string PrenomExpediteur)
         {
             string[] emailConfig = new string[4];
-            //emailConfig = getEmailConfig
+            XML xml = new XML();
+            MSG oMSG =new MSG();
+
+            oMSG = xml.ReadConfigSmtpDecrypted(oMSG);
+
+            oMSG.GetData("host").ToString();
+            oMSG.GetData("port");
+            oMSG.GetData("compte");
+            oMSG.GetData("pwd");
+
+            
             
             
             DateTime dateNow = DateTime.Today;
@@ -90,15 +110,22 @@ namespace Ways.Middleware.Groupe_de_processus
 
             string emailBody = PrenomExpediteur + " " + NomExpediteur + " vous invite à participer à l’évènement eXia du " + dateNow.ToString(" dd MMMM yyyy");
 
-            technique.sendEmail(emailConfig[0], emailConfig[1], emailConfig[2], emailConfig[3], mailDestinataire, emailSubject, emailBody);
-
+            MailSmtp.sendEmail((string)oMSG.GetData("host"), (int)oMSG.GetData("port"), (string)oMSG.GetData("compte"), (string)oMSG.GetData("pwd"),"axel.gauvrit@viacesi.fr", mailDestinataire, emailSubject, emailBody);
 
         }
 
         public static void sendEmail(string mailDestinataire, Filiere metier)
         {
             string[] emailConfig = new string[4];
-            //emailConfig = getEmailConfig
+            XML xml = new XML();
+            MSG oMSG = new MSG();
+
+            oMSG = xml.ReadConfigSmtpDecrypted(oMSG);
+
+            oMSG.GetData("host").ToString();
+            oMSG.GetData("port");
+            oMSG.GetData("compte");
+            oMSG.GetData("pwd");
 
 
             DateTime dateNow = DateTime.Today;
@@ -109,7 +136,7 @@ namespace Ways.Middleware.Groupe_de_processus
                                "Votre filière : " + metier.name +"\n\n" +
                                 "Description de la filière :\n" + metier.description;
 
-            technique.sendEmail(emailConfig[0], emailConfig[1], emailConfig[2], emailConfig[3], mailDestinataire, emailSubject, emailBody);
+            MailSmtp.sendEmail((string)oMSG.GetData("host"), (int)oMSG.GetData("port"), (string)oMSG.GetData("compte"), (string)oMSG.GetData("pwd"), "axel.gauvrit@viacesi.fr", mailDestinataire, emailSubject, emailBody);
 
         }
 
@@ -150,6 +177,20 @@ namespace Ways.Middleware.Groupe_de_processus
                 Mappage.supprReponse(id);
             }
             Mappage.supprQuestion(IDQuestion);
+        }
+
+
+        public static List<Question> getAllQuestionsOfType(string type)
+        {
+            List<Question> quests = new List<Question>();
+            quests = Mappage.getAllQuestionsOfType(type);
+
+            foreach (Question quest in quests)
+            {
+                quest.reponses = Mappage.getReponseByIdQuestion(quest.ID);
+            }
+
+            return quests;
         }
 
     }

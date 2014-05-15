@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Ways.Client.Composant_utilisateur_de_communication;
+using Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees;
 
 namespace Ways.Middleware.Metier.Composant_technique
 {
@@ -14,35 +15,20 @@ namespace Ways.Middleware.Metier.Composant_technique
 
 
         /*****************************************************Email****************************************************************/
-        public static void saveEmailConfig(string URL, string port, string compte, string mdp)
+        public static void saveEmailConfig(string host, string port, string compte, string mdp)
         {
             //le truc avec le XML
+            MSG oMsg = new MSG();
+            oMsg.SetData("host", oMsg.GetData("source"));
+            oMsg.SetData("port", oMsg.GetData("database"));
+            oMsg.SetData("compte", oMsg.GetData("login"));
+            oMsg.SetData("pwd", oMsg.GetData("pwd"));
 
-            //si erreur affichage Message via Composant de communication
+            XML xml = new XML();
+            xml.WriteConfigSmtpCrypted(oMsg);
         }
 
-        public static void sendEmail(string mailServer, string login, string password, string mailAdress, string mailToSend, string mailSubject, string mailBody)
-        {
-
-
-            SmtpClient SmtpServer = new SmtpClient(mailServer);
-            SmtpServer.Port = 25;
-            SmtpServer.Credentials = new System.Net.NetworkCredential(login, password);
-            SmtpServer.EnableSsl = true;
-
-            try
-            {
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(mailAdress);
-                DateTime dateNow = DateTime.Today;
-                mail.Subject = "Invitation evenement eXia du" + dateNow.ToString(" dd MMMM yyyy");
-                mail.Body = "";
-                mail.To.Add(mailToSend);
-                SmtpServer.Send(mail);
-            }
-            catch (Exception Ex)
-            {}
-        }
+        
 
 
 

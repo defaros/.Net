@@ -112,7 +112,7 @@ namespace Ways.Client._1.Composant_utilisateurs
             
             if(goodToGo)
             {
-                this.reponse = new Reponse("Aidez Nous", pointsEarned);
+                this.reponse = new Reponse("Aidez Nous", pointsEarned,-1);
                 this.Close();
             }
 
@@ -121,7 +121,7 @@ namespace Ways.Client._1.Composant_utilisateurs
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
             //retour Menu principal
-            this.reponse = new Reponse("Pas de réponse", -1);
+            this.reponse = new Reponse("Pas de réponse", -1,-1);
             this.Close();
         }
     }

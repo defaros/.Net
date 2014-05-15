@@ -117,19 +117,20 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
         public static Classement getClassement()
         {
-            //return Mappage.getClassement();
+            return Mappage.getClassement();
             return null;
         }
 
         public static Question[] getAllQuestionsOfType(string type)
         {
-            //return Mappage.getClassement();
-            return null;
+            Question[] quest = Mappage.getAllQuestionsOfType(type).ToArray();
+
+            return quest;
         }
 
         public static List<Ways.Client.Composant_utilisateur_de_communication.Filiere> getAllMetier()
         {
-            //return Mappage.getAllMetier();
+            return Mappage.getAllMetier();
             return null;
         }
 

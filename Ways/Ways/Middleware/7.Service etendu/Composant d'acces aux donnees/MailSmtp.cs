@@ -4,20 +4,16 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 {
     class MailSmtp
     {
 
-        #region Variables de classe
-
         private MailMessage message;
         private SmtpClient smtp;
 
-        #endregion
-
-        #region Constructeurs
 
         public MailSmtp()
         {
@@ -25,39 +21,27 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             smtp = new SmtpClient();
         }
 
-        #endregion
-
-        #region Méthode
-
-        public MSG send(MSG oMsg)
+        public static void sendEmail(string mailServer, int port, string login, string password, string mailAdress, string mailToSend, string mailSubject, string mailBody)
         {
-            #region mail_r
+            SmtpClient SmtpServer = new SmtpClient(mailServer,port);
+            SmtpServer.Credentials = new System.Net.NetworkCredential(login, password);
+            SmtpServer.EnableSsl = true;
 
-            #endregion
-
-            #region mail_e
-
-            message.To.Add((string)oMsg.GetData("mail"));
-            message.Subject = "Mail JPO EXIA";
-            message.From = new System.Net.Mail.MailAddress("defaros67@gmail.com");
-            if ((string)oMsg.GetData("body") == null)
+            try
             {
-                message.Body = "ici le message du destinataire";
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(mailAdress);
+                DateTime dateNow = DateTime.Today;
+                mail.Subject = "Invitation evenement eXia du" + dateNow.ToString(" dd MMMM yyyy");
+                mail.Body = "";
+                mail.To.Add(mailToSend);
+                SmtpServer.Send(mail);
             }
-            else
+            catch (Exception Ex)
             {
-                message.Body = (string)oMsg.GetData("body");
+                MessageBox.Show("ERREUR:\n" + Ex.Message);
             }
-
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 25;
-            smtp.Send(message);
-
-            return oMsg;
-
-            #endregion
         }
 
-        #endregion
     }
 }
