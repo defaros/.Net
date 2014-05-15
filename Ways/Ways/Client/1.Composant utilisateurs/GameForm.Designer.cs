@@ -103,6 +103,7 @@
             // 
             this.richTextBoxType.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBoxType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxType.Enabled = false;
             this.richTextBoxType.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxType.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.richTextBoxType.Location = new System.Drawing.Point(249, 38);
@@ -116,6 +117,7 @@
             // 
             this.textBoxQuestion.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBoxQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxQuestion.Enabled = false;
             this.textBoxQuestion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.textBoxQuestion.Location = new System.Drawing.Point(361, 131);
             this.textBoxQuestion.Name = "textBoxQuestion";

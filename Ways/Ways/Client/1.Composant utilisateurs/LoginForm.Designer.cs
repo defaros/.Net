@@ -41,7 +41,7 @@
             this.buttonSend.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSend.Location = new System.Drawing.Point(164, 280);
-            this.buttonSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSend.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(100, 30);
             this.buttonSend.TabIndex = 0;
@@ -63,7 +63,7 @@
             // textBoxIdentifiant
             // 
             this.textBoxIdentifiant.Location = new System.Drawing.Point(148, 139);
-            this.textBoxIdentifiant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxIdentifiant.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxIdentifiant.Name = "textBoxIdentifiant";
             this.textBoxIdentifiant.Size = new System.Drawing.Size(132, 23);
             this.textBoxIdentifiant.TabIndex = 3;
@@ -82,7 +82,7 @@
             // textBoxPsw
             // 
             this.textBoxPsw.Location = new System.Drawing.Point(148, 203);
-            this.textBoxPsw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPsw.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPsw.Name = "textBoxPsw";
             this.textBoxPsw.Size = new System.Drawing.Size(132, 23);
             this.textBoxPsw.TabIndex = 5;
@@ -91,6 +91,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30.25F);
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
@@ -113,7 +114,7 @@
             this.Controls.Add(this.buttonSend);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);

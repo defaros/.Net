@@ -12,6 +12,8 @@ namespace Ways.Middleware.Metier.Composant_technique
     {
         //Effectue les calculs
 
+
+        /*****************************************************Email****************************************************************/
         public static void saveEmailConfig(string URL, string port, string compte, string mdp)
         {
             //le truc avec le XML
@@ -19,7 +21,7 @@ namespace Ways.Middleware.Metier.Composant_technique
             //si erreur affichage Message via Composant de communication
         }
 
-        public static void sendEmail(string mailServer, string login, string password, string mailAdress, string mailToSend)
+        public static void sendEmail(string mailServer, string login, string password, string mailAdress, string mailToSend, string mailSubject, string mailBody)
         {
 
 
@@ -39,9 +41,7 @@ namespace Ways.Middleware.Metier.Composant_technique
                 SmtpServer.Send(mail);
             }
             catch (Exception Ex)
-            {
-
-            }
+            {}
         }
 
 

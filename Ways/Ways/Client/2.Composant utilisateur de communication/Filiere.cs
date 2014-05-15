@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ways.Client.Composant_utilisateur_de_communication
 {
-    public class Metier
+    public class Filiere
     {
         //Description d'un metier (ou filière)
-        string name;
+        public string name;
 
-        string description;
+        public string description;
 
 
         public override string ToString()

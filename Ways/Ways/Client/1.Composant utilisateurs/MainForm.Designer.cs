@@ -117,6 +117,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 60.25F);
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.richTextBox1.Location = new System.Drawing.Point(310, 12);

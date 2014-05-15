@@ -10,28 +10,27 @@ namespace Ways.Client.Composant_utilisateur_de_communication
     {
         //User posedant un score et un plassement dans un classement
 
-        public string name;
-        public int score;
-        public int placement;
-
+        public int Place { get; set; }
+        public string Nom { get; set; }
+        public int Score { get; set; }
         public User(string NewName)
         {
-            this.name = NewName;
-            this.score = 0;
-            this.placement = 0;
+            this.Nom = NewName;
+            this.Score = 0;
+            this.Place = 0;
         }
 
         public User(string NewName, int score, int placement)
         {
-            this.name = NewName;
-            this.score = score;
-            this.placement = placement;
+            this.Nom = NewName;
+            this.Score = score;
+            this.Place = placement;
         }
 
         //Permet l'affichage dans les combobox
         public override string ToString()
         {
-            return name;
+            return Nom;
         }
 
     }

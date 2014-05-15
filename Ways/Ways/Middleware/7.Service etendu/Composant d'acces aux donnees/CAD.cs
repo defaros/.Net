@@ -30,7 +30,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             this.oDA = null;
         }
 
-        public void Connection(MSG oMsg)
+        public void openConnection(MSG oMsg)
         {
             try
             {
@@ -48,10 +48,22 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             }
         }
 
+        public void closeConnection()
+        {
+            try
+            {
+                oConn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ERREUR:\n" + e.Message);
+            }
+        }
+
         // Fonction qui gère les requêtes SELECT
         public MSG GetRows(MSG oMsg)
         {
-            Connection(oMsg);
+            openConnection(oMsg);
             this.rq_sql = (string)oMsg.GetData("sql");
             //this.rows = (string)oMsg.GetData("rows");
             this.oCmd = new SqlCommand(rq_sql, oConn);
@@ -76,7 +88,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         // Fonction qui gère les requêtes INSERT UPDATE ET DELETE
         public MSG ActionRows(MSG oMsg)
         {
-            Connection(oMsg);
+            openConnection(oMsg);
             this.rq_sql = (string)oMsg.GetData("sql");
             this.oCmd = new SqlCommand(rq_sql, oConn);
 

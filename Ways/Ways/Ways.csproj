@@ -53,12 +53,6 @@
     <Compile Include="Client\1.Composant utilisateurs\AidezNousForm.Designer.cs">
       <DependentUpon>AidezNousForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\1.Composant utilisateurs\EmailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Client\1.Composant utilisateurs\EmailsForm.Designer.cs">
-      <DependentUpon>EmailsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Client\3.Composant de travail\TravailClient.cs" />
     <Compile Include="Client\1.Composant utilisateurs\AdminForm.cs">
       <SubType>Form</SubType>
@@ -97,7 +91,7 @@
       <DependentUpon>OrientationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\2.Composant utilisateur de communication\Classement.cs" />
-    <Compile Include="Client\2.Composant utilisateur de communication\Metier.cs" />
+    <Compile Include="Client\2.Composant utilisateur de communication\Filiere.cs" />
     <Compile Include="Client\2.Composant utilisateur de communication\Question.cs" />
     <Compile Include="Client\2.Composant utilisateur de communication\Reponse.cs" />
     <Compile Include="Client\2.Composant utilisateur de communication\User.cs" />
@@ -124,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\1.Composant utilisateurs\ClassementForm.resx">
       <DependentUpon>ClassementForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Client\1.Composant utilisateurs\EmailsForm.resx">
-      <DependentUpon>EmailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\1.Composant utilisateurs\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ways.Client.Composant_de_travail;
+using Ways.Client.Composant_utilisateur_de_communication;
 
 namespace Ways.Client.Composant_utilisateurs
 {
@@ -23,7 +24,7 @@ namespace Ways.Client.Composant_utilisateurs
             //vérification que le surnom est valide
             if (TravailClient.verifSurnom(textBoxName.Text))
             {
-                TravailClient.lancerOrientation();
+                TravailClient.lancerOrientation(new User(textBoxName.Text));
             }
         }
 
@@ -33,7 +34,7 @@ namespace Ways.Client.Composant_utilisateurs
             //vérification que le surnom est valide (avec gestion dans la BDD
             if (TravailClient.verifSurnomDoublons(textBoxName.Text))
             {
-                TravailClient.lancerJeu();
+                TravailClient.lancerJeu(new User(textBoxName.Text));
             }
         }
 

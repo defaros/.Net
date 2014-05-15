@@ -17,6 +17,8 @@ namespace Ways.Client.Composant_utilisateurs
     {
         //User en cours
         public User currentUser = null;
+        //Type jeu: "Orientation" ou "Jeu"
+        public string typeJeu = null;
         //Liste des questions à afficher
         public Question[] questionsToDisplay = null;
         //Numéro de la question en cours
@@ -24,22 +26,18 @@ namespace Ways.Client.Composant_utilisateurs
         //Liste des réponses choisies par l'utilisateur
         List<Reponse> reponsesDonnees = new List<Reponse>();
 
-        public GameForm(User user, Question[] questions, int typeJeu)
+        public GameForm(User user, Question[] questions, string typeJeu)
         {
             InitializeComponent();
 
             //sauvegarde de l'user
             this.currentUser = user;
 
+            //Sauvegarde du type de jeu
+            this.typeJeu = typeJeu;
+
             //Mise en forme de la fenêtre
-            if (typeJeu == 0)
-            {
-                this.Text = "Section Orientation";
-            }
-            else
-            {
-                this.Text = "Section Jeu";
-            }
+                this.Text = "Section " + typeJeu;
 
             //Mise à zéro des radioButtons
             radioButton1.Text = null;
@@ -126,8 +124,15 @@ namespace Ways.Client.Composant_utilisateurs
             }
             else
             {
-                TravailClient.finDeLaPartie(reponsesDonnees, currentUser);
-                this.Hide();
+                if (typeJeu == "Jeu")
+                {
+                    TravailClient.finDeLaPartie(reponsesDonnees, currentUser);
+                    this.Hide();
+                }
+                else
+                {
+                    TravailClient.finDuQuizz(reponsesDonnees, currentUser);
+                }
             }
 
         }

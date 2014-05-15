@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,12 +20,12 @@ namespace Ways
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainForm());
+            Application.Run(new MainForm());
 
             
 
 
-            //Tests pour la form question
+            /*//Tests pour les forms
             Reponse rep = new Reponse("a",0);
             Reponse rep2 = new Reponse("b",1);
 
@@ -52,7 +53,24 @@ namespace Ways
             Console.WriteLine("Today is " + thisDate1.ToString(" dd/MM/yyyy") + ".");
             
 
-            Application.Run(new EmailsForm());
+            //Application.Run(new AidezNousForm());
+
+
+
+
+
+            User user1 = new User("Robert", 25, 1);
+            User user2 = new User("Jaques", 20, 2);
+            User user3 = new User("Michel", 10, 3);
+
+            BindingList<User> list = new BindingList<User>();
+            list.Add(user1);
+            list.Add(user2);
+            list.Add(user3);
+
+            Classement cl = new Classement(list);
+
+            Application.Run(new ClassementForm(cl, user3));*/
         }
     }
 }

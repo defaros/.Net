@@ -8,6 +8,7 @@ using Ways.Client._1.Composant_utilisateurs;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
 using Ways.Middleware.Composant_d_acces_metier;
+using System.Data.SqlClient;
 
 namespace Ways.Client.Composant_de_travail
 {
@@ -20,29 +21,33 @@ namespace Ways.Client.Composant_de_travail
 
 
         /*********************************MainForm**************************************************/
-        
 
+        public static void showMainForm()
+        {
+            MainForm main = new MainForm();
+            main.Show();
+        }
 
         //Lance une GameForm en mode orientation
-        public static void lancerOrientation()
+        public static void lancerOrientation(User currentUser)
         {
             //Type 0 = Orientation
-            //int type = 0;
-            //Question[] questions = getAllQuestionsOfType(type);
-            //GameForm GF = new GameForm(questions, type);
-            //GF.ShowDialog();
+            string type = "Orientation";
+            Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            GameForm GF = new GameForm(currentUser,questions, type);
+            GF.ShowDialog();
 
         }
 
 
         //Lance une GameForm en mode jeu
-        public static void lancerJeu()
+        public static void lancerJeu(User currentUser)
         {
             //Type 1 = Jeu
-            //int type = 1;
-            //Question[] questions = getAllQuestionsOfType(type);
-            //GameForm GF = new GameForm(questions, type);
-            //GF.ShowDialog();         
+            string type = "Jeu";
+            Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            GameForm GF = new GameForm(currentUser, questions, type);
+            GF.ShowDialog();         
         }
 
 
@@ -76,10 +81,6 @@ namespace Ways.Client.Composant_de_travail
 
         /***************************GameForm******************************/
 
-        public static void showClassementForm(List<Reponse> reps)
-        {
-            accesMetier.showClassement(reps);
-        }
 
 
         public static int calculScore(List<Reponse> reps)
@@ -99,6 +100,54 @@ namespace Ways.Client.Composant_de_travail
 
         
 
+        
+
+        public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
+        {
+            accesMetier.finDeLaPartie(reponsesDonnees, currentUser);
+        }
+
+        public static void finDuQuizz(List<Reponse> reponsesDonnees, User currentUser)
+        {
+            accesMetier.finDuQuizz(reponsesDonnees, currentUser);
+        }
+
+
+
+        /********************************************************AidezNousForm******************************************************/
+
+        public static Reponse showAidezNousForm()
+        {
+            AidezNousForm AideForm = new AidezNousForm();
+            AideForm.ShowDialog();
+
+            return AideForm.reponse;
+        }
+
+
+        /********************************************************ClassementForm******************************************************/
+
+        public static void showClassementForm(Classement classement, User currentUser)
+        {
+            ClassementForm CLForm = new ClassementForm(classement, currentUser);
+        }
+
+
+
+        /**********************************************************OrientationForm*****************************************************/
+
+        public static void showOrientationForm(Filiere f)
+        {
+            OrientationForm orientForm = new OrientationForm(f);
+            orientForm.Show();
+        }
+
+
+
+
+
+
+        /********************************************************Vers couche metier******************************************************/
         public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
             //Si IDQuestion est <0 alors nouvelle question
@@ -118,64 +167,22 @@ namespace Ways.Client.Composant_de_travail
             {
                 // code si conversion KO
             }
-
-
         }
 
-        public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
+        public static void supprQuestion(int ID)
         {
-            Reponse repAidez = TravailClient.showAidezNousForm();
-            Reponse repEmail = null;
 
-            if (repAidez.reponse != null)
-            {
-                repEmail = TravailClient.showEmailForm();
-            }
-
-            reponsesDonnees.Add(repAidez);
-            reponsesDonnees.Add(repEmail);
-
-
-            currentUser.score = TravailClient.calculScore(reponsesDonnees);
-
-            //enregistrer en BDD 
-            accesMetier.storeScore(currentUser);
-
-            //calculer classement
-            Classement classement = accesMetier.getClassement();
-
-
-            ClassementForm CF = new ClassementForm(classement,currentUser);
-            CF.Show();
         }
 
-
-
-        /********************************************************AidezNousForm******************************************************/
-
-        public static Reponse showAidezNousForm()
+        public static void sendEmail(string mailDestinataire, Filiere metier)
         {
-            AidezNousForm AideForm = new AidezNousForm();
-            AideForm.ShowDialog();
-
-            return AideForm.reponse;
+            accesMetier.sendEmail(mailDestinataire, metier);
         }
 
-
-
-        /********************************************************EmailForm******************************************************/
-
-
-        public static Reponse showEmailForm()
+        public static void sendEmail(string mailDestinataire, string NomExpediteur, string PrenomExpediteur)
         {
-            EmailsForm emailForm = new EmailsForm();
-            emailForm.ShowDialog();
-
-            return emailForm.rep;
+            accesMetier.sendEmail(mailDestinataire, NomExpediteur, PrenomExpediteur);
         }
-
-
-
 
         
 
