@@ -19,7 +19,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         private SqlCommand oCmd;
         private DbDataAdapter oDA;
         private DataSet oDS;
-        private SqlConnection oConn;
+        public SqlConnection oConn;
         private Hashtable oParameters;
 
         public CAD()
@@ -39,7 +39,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                 oConn = new SqlConnection();
 
                 oConn.ConnectionString =
-                    @"Data Source=WIN-" + oMsg.GetData("source") + @";Initial Catalog=" + oMsg.GetData("database") + @";Persist Security Info=True;User ID=" + oMsg.GetData("login") + @";Password=" + oMsg.GetData("pwd") + "1";
+                    @"Data Source=" + oMsg.GetData("source") + @";Initial Catalog=" + oMsg.GetData("database") + @";Persist Security Info=True;User ID=" + oMsg.GetData("login") + @";Password=" + oMsg.GetData("pwd");
                 oConn.Open();
             }
             catch (Exception e)

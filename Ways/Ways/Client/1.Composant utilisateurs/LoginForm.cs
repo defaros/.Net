@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ways.Client.Composant_de_travail;
+using Ways.Client.Composant_utilisateur_de_communication;
 
 namespace Ways.Client.Composant_utilisateurs
 {
@@ -29,7 +30,7 @@ namespace Ways.Client.Composant_utilisateurs
 
             if (TravailClient.verifLogin(textBoxIdentifiant.Text, textBoxPsw.Text))
             {
-                AdminForm AdminF = new AdminForm(null, null, null);
+                TravailClient.showAdminForm();
             }
 
         }

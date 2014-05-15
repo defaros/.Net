@@ -18,10 +18,10 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 
         public MSG WriteConfigCrypted(MSG oMsg)
         {
-            oMsg.SetData("source", Crypt.Encrypt((string)oMsg.GetData("source")));
-            oMsg.SetData("database", Crypt.Encrypt((string)oMsg.GetData("database")));
-            oMsg.SetData("login", Crypt.Encrypt((string)oMsg.GetData("login")));
-            oMsg.SetData("pwd", Crypt.Encrypt((string)oMsg.GetData("pwd")));
+            oMsg.SetData("source", Crypt.EncryptAES((string)oMsg.GetData("source")));
+            oMsg.SetData("database", Crypt.EncryptAES((string)oMsg.GetData("database")));
+            oMsg.SetData("login", Crypt.EncryptAES((string)oMsg.GetData("login")));
+            oMsg.SetData("pwd", Crypt.EncryptAES((string)oMsg.GetData("pwd")));
 
             return WriteXml(oMsg);
         }
@@ -43,7 +43,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
                     )
                 );
 
-                document.Save(@"E:\Depot\.Net\Ways\Configsmtp.xml");
+                document.Save(@"C:\Ways\ConfigEmail.xml");
             }
             catch (Exception e)
             {
@@ -59,7 +59,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
             {
 
                 // Charge le fichier XML de config
-                XDocument document = XDocument.Load(@"E:\Depot\.Net\Ways\Configsmtp.xml");
+                XDocument document = XDocument.Load(@"C:\Ways\ConfigEmail.xml");
 
                 // Récupère le chemin source du serveur
                 string sourceC = "";
@@ -126,10 +126,10 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         {
             oMsg = ReadXml(oMsg);
 
-            oMsg.SetData("source", Crypt.Decrypt((string)oMsg.GetData("sourceC")));
-            oMsg.SetData("database", Crypt.Decrypt((string)oMsg.GetData("databaseC")));
-            oMsg.SetData("login", Crypt.Decrypt((string)oMsg.GetData("loginC")));
-            oMsg.SetData("pwd", Crypt.Decrypt((string)oMsg.GetData("pwdC")));
+            oMsg.SetData("source", Crypt.DecryptAES((string)oMsg.GetData("sourceC")));
+            oMsg.SetData("database", Crypt.DecryptAES((string)oMsg.GetData("databaseC")));
+            oMsg.SetData("login", Crypt.DecryptAES((string)oMsg.GetData("loginC")));
+            oMsg.SetData("pwd", Crypt.DecryptAES((string)oMsg.GetData("pwdC")));
 
             return oMsg;
         }
@@ -137,8 +137,8 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 
         public MSG WriteConfigSmtpCrypted(MSG oMsg)
         {
-            oMsg.SetData("host", Crypt.Encrypt((string)oMsg.GetData("host")));
-            oMsg.SetData("port", Crypt.Encrypt((string)oMsg.GetData("port")));
+            oMsg.SetData("host", Crypt.EncryptAES((string)oMsg.GetData("host")));
+            oMsg.SetData("port", Crypt.EncryptAES((string)oMsg.GetData("port")));
 
 
             return WriteSmtpXml(oMsg);
@@ -172,8 +172,8 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         {
             oMsg = ReadSmtpXml(oMsg);
 
-            oMsg.SetData("host", Crypt.Decrypt((string)oMsg.GetData("host")));
-            oMsg.SetData("port", Crypt.Decrypt((string)oMsg.GetData("port")));
+            oMsg.SetData("host", Crypt.DecryptAES((string)oMsg.GetData("host")));
+            oMsg.SetData("port", Crypt.DecryptAES((string)oMsg.GetData("port")));
 
             return oMsg;
         }

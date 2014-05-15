@@ -114,7 +114,7 @@ namespace Ways.Client.Composant_utilisateurs
             //Modifie ou créé une question de type Jeu
             Question currentQuestion = (Question)comboBoxJeu.SelectedItem;
 
-            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            //TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
             
         }
 
@@ -131,7 +131,7 @@ namespace Ways.Client.Composant_utilisateurs
             //Modifie ou créé une question de type Orientation
             Question currentQuestion = (Question)comboBoxOrientation.SelectedItem;
 
-            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            //.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
             
         }
 

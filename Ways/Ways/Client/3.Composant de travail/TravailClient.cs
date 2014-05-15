@@ -69,6 +69,9 @@ namespace Ways.Client.Composant_de_travail
             return accesMetier.verifSurnomDoublons(name);
         }
 
+
+        /***************************LoginForm******************************/
+
         //Verifie les informations Administrateurs
         public static bool verifLogin(string identifiant, string psw)
         {
@@ -93,10 +96,7 @@ namespace Ways.Client.Composant_de_travail
             return new Classement(null);
         }
 
-        public static void saveEmailConfig(string URL, string port, string compte, string mdp)
-        {
-            accesMetier.saveEmailConfig(URL, port, compte, mdp);
-        }
+        
 
         
 
@@ -144,11 +144,25 @@ namespace Ways.Client.Composant_de_travail
 
 
 
+        /**********************************************************AdminForm*****************************************************/
+
+        public static void showAdminForm()
+        {
+            accesMetier.showAdminForm();
+        }
+
+
+        public static void saveEmailConfig(string URL, string port, string compte, string mdp)
+        {
+            accesMetier.saveEmailConfig(URL, port, compte, mdp);
+        }
+
+
 
 
 
         /********************************************************Vers couche metier******************************************************/
-        public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void modifQuestion(int IDQuestion, string enonce, string type, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
             //Si IDQuestion est <0 alors nouvelle question
             int num;
@@ -156,7 +170,7 @@ namespace Ways.Client.Composant_de_travail
             {
                 if (num < 0)
                 {
-                    accesMetier.addQuestion(enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+                    accesMetier.addQuestion(enonce, type, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
                 }
                 else
                 {
@@ -173,6 +187,8 @@ namespace Ways.Client.Composant_de_travail
         {
 
         }
+
+
 
         public static void sendEmail(string mailDestinataire, Filiere metier)
         {

@@ -10,6 +10,7 @@ using Ways.Middleware.Composant_d_acces_metier;
 using Ways.Middleware.Metier.Composant_technique;
 using Ways.Middleware.Metier.Mappage;
 using System.Data.SqlClient;
+using Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees;
 
 namespace Ways.Middleware.Groupe_de_processus
 {
@@ -17,63 +18,7 @@ namespace Ways.Middleware.Groupe_de_processus
     {
         //Décris une suite de processus appartenants au technique, controleur ou mappage
 
-        public static bool verifSurnom(string name)
-        {
-            if (name == null)
-            {
-                //display ErrorMessageSurnomNull
-                return false;
-            }
-            else if (name.Length > 20)
-            {
-                //display ErrorMessageSurnomLong
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-
-        public static bool verifSurnomDoublons(string name)
-        {
-            if (name == null)
-            {
-                //display ErrorMessageSurnomNull
-                return false;
-            }
-            else if (name.Length > 20)
-            {
-                //display ErrorMessageSurnomLong
-                return false;
-            }
-            else if (isThatNameAlreadyUse(name))
-            {
-                //display ErrorMessageSurnomAlreadyUse
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-
-        public static bool isThatNameAlreadyUse(string name)
-        {
-            string[] allNames = Mappage.getAllNames();
-
-            foreach (string varName in allNames)
-            {
-                if (name == varName)
-                {
-                    return false;
-                }
-            }
-
-            return false;
-        }
+        
 
 
         public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
@@ -113,6 +58,21 @@ namespace Ways.Middleware.Groupe_de_processus
             }
 
             accesMetier.showOrientationForm(filiereToDisplay);
+        }
+
+
+        public static void showAdminForm()
+        {
+            List<Question> listQuestJeu;
+            List<Question> listQuestOrientation;
+            List<string> paramEmail;
+
+            listQuestJeu = Mappage.getAllQuestionsOfType("Jeu");
+            listQuestOrientation = Mappage.getAllQuestionsOfType("Orientation");
+
+            XML xml = new XML();
+            MSG oMSG = new MSG();
+            xml.ReadConfigDecrypted(oMSG);
         }
 
 
@@ -160,9 +120,9 @@ namespace Ways.Middleware.Groupe_de_processus
 
 
         /**********************************************Mappage***************************************************/
-        public static void addQuestion(string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void addQuestion(string enonce, string type, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            Mappage.addQuestion(enonce);
+            Mappage.addQuestion(enonce, type);
             int ID = Mappage.getIDQuestionbyEnonce(enonce);
             Mappage.addReponse(ID, reponse1Enonce, Convert.ToInt32(reponse1Points));
             Mappage.addReponse(ID, reponse2Enonce, Convert.ToInt32(reponse2Points));

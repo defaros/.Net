@@ -16,20 +16,12 @@ namespace Ways.Middleware.Composant_d_acces_metier
 {
     class accesMetier
     {
-        //Fait la liason entre la couche métier et la couche client
+        //Fait la liaison entre la couche métier et la couche client
         //Decide si la demande doit être traitée dans le processus, le controleur, le composant technique ou dans le mappage
 
 
         //Section Processus
-        public static bool verifSurnom(string name)
-        {
-            return processus.verifSurnom(name);
-        }
-
-        public static bool verifSurnomDoublons(string name)
-        {
-            return processus.verifSurnomDoublons(name);
-        }
+        
 
 
         public static void finDeLaPartie(List<Reponse> reponsesDonnees, User currentUser)
@@ -42,9 +34,9 @@ namespace Ways.Middleware.Composant_d_acces_metier
             processus.finDuQuizz(reponsesDonnees, currentUser);
         }
 
-        public static void addQuestion(string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void addQuestion(string enonce, string type, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            processus.addQuestion(enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+            processus.addQuestion(enonce, type, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
         }
 
         public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
@@ -55,6 +47,12 @@ namespace Ways.Middleware.Composant_d_acces_metier
         public static void supprQuestion(int IDQuestion)
         {
             processus.supprQuestion(IDQuestion);
+        }
+
+
+        public static void showAdminForm()
+        {
+            processus.showAdminForm();
         }
 
 
@@ -87,10 +85,17 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
 
 
+
+
         //Section Controleur
-        public static bool verifLogin(string identifiant, string psw)
+        public static bool verifSurnom(string name)
         {
-            return controleur.verifLogin(identifiant, psw);
+            return controleur.verifSurnom(name);
+        }
+
+        public static bool verifSurnomDoublons(string name)
+        {
+            return controleur.verifSurnomDoublons(name);
         }
 
 
@@ -98,6 +103,11 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
 
         //Section Mappage
+
+        public static bool verifLogin(string identifiant, string psw)
+        {
+            return Mappage.verifLogin(identifiant, psw);
+        }
         
 
         public static void storeScore(User user)

@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using Ways.Client._1.Composant_utilisateurs;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
+using Ways.Middleware.Metier.Mappage;
+using Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees;
 
 namespace Ways
 {
@@ -18,14 +20,31 @@ namespace Ways
         [STAThread]
         static void Main()
         {
+            // Création des fichiers XML au démarrage du programme 
+            XML oXml = new XML();
+            MSG oMsg = new MSG();
+            oMsg.SetData("source", "10.67.144.136");
+            oMsg.SetData("database", "WAYS");
+            oMsg.SetData("login", "Administrateur");
+            oMsg.SetData("pwd", "adminways");
+            oXml.WriteConfigCrypted(oMsg);
+
+            /*oMsg.SetData("host", @"smtp.orange.fr");
+            oMsg.SetData("port", "25");
+            oXml.WriteSmtpXml(oMsg);*/
+            //oXml.WriteConfigSmtpCrypted(oMsg); 
+            ////oMsg = oXml.ReadConfigSmtpDecrypted(oMsg);
+            //MailSmtp oMailSmtp = new MailSmtp();
+            //oMailSmtp.send(oMsg);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainForm());/*
 
             
 
 
-            /*//Tests pour les forms
+            //Tests pour les forms
             Reponse rep = new Reponse("a",0);
             Reponse rep2 = new Reponse("b",1);
 
@@ -70,7 +89,9 @@ namespace Ways
 
             Classement cl = new Classement(list);
 
-            Application.Run(new ClassementForm(cl, user3));*/
+            Application.Run(new ClassementForm(cl, user3));
+
+            Mappage.addQuestion("Ceci est un test", "Jeu");*/
         }
     }
 }

@@ -54,66 +54,74 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 108);
+            this.label1.Location = new System.Drawing.Point(87, 166);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom* :";
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(99, 105);
+            this.textBoxNom.Location = new System.Drawing.Point(148, 161);
+            this.textBoxNom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNom.Size = new System.Drawing.Size(148, 26);
             this.textBoxNom.TabIndex = 1;
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(99, 131);
+            this.textBoxPrenom.Location = new System.Drawing.Point(148, 201);
+            this.textBoxPrenom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrenom.Size = new System.Drawing.Size(148, 26);
             this.textBoxPrenom.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 134);
+            this.label2.Location = new System.Drawing.Point(66, 206);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Prenom* :";
             // 
             // textBoxAge
             // 
-            this.textBoxAge.Location = new System.Drawing.Point(99, 157);
+            this.textBoxAge.Location = new System.Drawing.Point(148, 241);
+            this.textBoxAge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAge.Size = new System.Drawing.Size(148, 26);
             this.textBoxAge.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 161);
+            this.label3.Location = new System.Drawing.Point(91, 248);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Age :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 185);
+            this.label4.Location = new System.Drawing.Point(84, 285);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Sexe :";
             // 
             // radioButtonH
             // 
             this.radioButtonH.AutoSize = true;
-            this.radioButtonH.Location = new System.Drawing.Point(99, 183);
+            this.radioButtonH.Location = new System.Drawing.Point(148, 281);
+            this.radioButtonH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioButtonH.Name = "radioButtonH";
-            this.radioButtonH.Size = new System.Drawing.Size(61, 17);
+            this.radioButtonH.Size = new System.Drawing.Size(83, 24);
             this.radioButtonH.TabIndex = 7;
             this.radioButtonH.TabStop = true;
             this.radioButtonH.Text = "Homme";
@@ -122,9 +130,10 @@
             // radioButtonF
             // 
             this.radioButtonF.AutoSize = true;
-            this.radioButtonF.Location = new System.Drawing.Point(99, 206);
+            this.radioButtonF.Location = new System.Drawing.Point(148, 316);
+            this.radioButtonF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioButtonF.Name = "radioButtonF";
-            this.radioButtonF.Size = new System.Drawing.Size(59, 17);
+            this.radioButtonF.Size = new System.Drawing.Size(80, 24);
             this.radioButtonF.TabIndex = 8;
             this.radioButtonF.TabStop = true;
             this.radioButtonF.Text = "Femme";
@@ -132,103 +141,121 @@
             // 
             // buttonValider
             // 
-            this.buttonValider.Location = new System.Drawing.Point(196, 254);
+            this.buttonValider.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonValider.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonValider.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonValider.Location = new System.Drawing.Point(294, 391);
+            this.buttonValider.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(75, 23);
+            this.buttonValider.Size = new System.Drawing.Size(112, 35);
             this.buttonValider.TabIndex = 9;
             this.buttonValider.Text = "Valider";
-            this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.UseVisualStyleBackColor = false;
             this.buttonValider.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonAnnuler
             // 
-            this.buttonAnnuler.Location = new System.Drawing.Point(115, 254);
+            this.buttonAnnuler.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonAnnuler.Location = new System.Drawing.Point(172, 391);
+            this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAnnuler.Name = "buttonAnnuler";
-            this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.buttonAnnuler.Size = new System.Drawing.Size(112, 35);
             this.buttonAnnuler.TabIndex = 10;
             this.buttonAnnuler.Text = "Annuler";
-            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.UseVisualStyleBackColor = false;
             this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // labelError
             // 
             this.labelError.AutoSize = true;
-            this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(520, 128);
+            this.labelError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelError.Location = new System.Drawing.Point(780, 196);
+            this.labelError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(87, 13);
+            this.labelError.Size = new System.Drawing.Size(132, 20);
             this.labelError.TabIndex = 15;
             this.labelError.Text = "Email non valide!";
             this.labelError.Visible = false;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(393, 105);
+            this.textBoxEmail.Location = new System.Drawing.Point(590, 161);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(327, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(489, 26);
             this.textBoxEmail.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(434, 63);
+            this.label5.Location = new System.Drawing.Point(651, 96);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(255, 13);
+            this.label5.Size = new System.Drawing.Size(394, 20);
             this.label5.TabIndex = 12;
             this.label5.Text = "Invitez vos amis pour gagner (encore) plus de points!";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(424, 254);
+            this.label6.Location = new System.Drawing.Point(636, 391);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(265, 13);
+            this.label6.Size = new System.Drawing.Size(402, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Les adresses e-mail ne seront pas conservées en base";
             // 
             // labelError2
             // 
             this.labelError2.AutoSize = true;
-            this.labelError2.ForeColor = System.Drawing.Color.Red;
-            this.labelError2.Location = new System.Drawing.Point(520, 182);
+            this.labelError2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelError2.Location = new System.Drawing.Point(780, 280);
+            this.labelError2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(87, 13);
+            this.labelError2.Size = new System.Drawing.Size(132, 20);
             this.labelError2.TabIndex = 19;
             this.labelError2.Text = "Email non valide!";
             this.labelError2.Visible = false;
             // 
             // textBoxEmail2
             // 
-            this.textBoxEmail2.Location = new System.Drawing.Point(393, 159);
+            this.textBoxEmail2.Location = new System.Drawing.Point(590, 245);
+            this.textBoxEmail2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxEmail2.Name = "textBoxEmail2";
-            this.textBoxEmail2.Size = new System.Drawing.Size(327, 20);
+            this.textBoxEmail2.Size = new System.Drawing.Size(489, 26);
             this.textBoxEmail2.TabIndex = 18;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 63);
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.25F);
+            this.label7.Location = new System.Drawing.Point(234, 25);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(283, 13);
+            this.label7.Size = new System.Drawing.Size(607, 24);
             this.label7.TabIndex = 20;
             this.label7.Text = "Gagnez des points en nous aidant à mieux vous connaitre!";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(421, 231);
+            this.label8.Location = new System.Drawing.Point(631, 355);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(268, 13);
+            this.label8.Size = new System.Drawing.Size(411, 20);
             this.label8.TabIndex = 21;
             this.label8.Text = "Les champs marqué d\'un astérisque (*) sont obligatoires";
             // 
             // labelErrorPrenom
             // 
             this.labelErrorPrenom.AutoSize = true;
-            this.labelErrorPrenom.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorPrenom.Location = new System.Drawing.Point(214, 134);
+            this.labelErrorPrenom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelErrorPrenom.Location = new System.Drawing.Point(321, 206);
+            this.labelErrorPrenom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorPrenom.Name = "labelErrorPrenom";
-            this.labelErrorPrenom.Size = new System.Drawing.Size(82, 13);
+            this.labelErrorPrenom.Size = new System.Drawing.Size(127, 20);
             this.labelErrorPrenom.TabIndex = 22;
             this.labelErrorPrenom.Text = "Prénom invalide";
             this.labelErrorPrenom.Visible = false;
@@ -236,19 +263,21 @@
             // labelErrorNom
             // 
             this.labelErrorNom.AutoSize = true;
-            this.labelErrorNom.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorNom.Location = new System.Drawing.Point(214, 108);
+            this.labelErrorNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelErrorNom.Location = new System.Drawing.Point(321, 166);
+            this.labelErrorNom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelErrorNom.Name = "labelErrorNom";
-            this.labelErrorNom.Size = new System.Drawing.Size(68, 13);
+            this.labelErrorNom.Size = new System.Drawing.Size(105, 20);
             this.labelErrorNom.TabIndex = 23;
             this.labelErrorNom.Text = "Nom invalide";
             this.labelErrorNom.Visible = false;
             // 
             // AidezNousForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 290);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(1135, 446);
             this.Controls.Add(this.labelErrorNom);
             this.Controls.Add(this.labelErrorPrenom);
             this.Controls.Add(this.label8);
@@ -270,6 +299,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AidezNousForm";
             this.Text = "Aidez Nous à mieux vous connaitre";
             this.ResumeLayout(false);

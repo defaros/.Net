@@ -4,54 +4,77 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.IO;
+using System.Text;
+using System.Security.Cryptography;
+
+
+
 
 namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
 {
     class Crypt
     {
-        private const string sSecretKey = "Password"; // Clé utilisée pour crypter les données
+        private const string EncryptionKey = "MAKV2SPBNI99212"; // Clé utilisée pour crypter les données
 
 
         /* Fonction qui crypte une chaîne de caractères */
-        public static string Encrypt(string original)
+        public static string EncryptAES(string clearText)
         {
-            MD5CryptoServiceProvider hashMd5 = new MD5CryptoServiceProvider();
-            byte[] passwordHash = hashMd5.ComputeHash(
-            UnicodeEncoding.Unicode.GetBytes(sSecretKey));
-
-            TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
-            des.Key = passwordHash;
-
-            des.Mode = CipherMode.ECB;
-
-            byte[] buffer = UnicodeEncoding.Unicode.GetBytes(original);
-
-            return UnicodeEncoding.Unicode.GetString(
-            des.CreateEncryptor().TransformFinalBlock(buffer, 0, buffer.Length));
-
+            string encryptedText;
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    encryptedText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return encryptedText;
         }
 
-        /* Fonction qui décrypte une chaîne encryptée */
-        public static String Decrypt(string StringToDecrypt)
+
+
+        /* Fonction qui decrypte une chaîne de caractères */
+        public static string DecryptAES(string cipherText)
         {
+            string clearText;
 
-            String StringDecrypted = "";
-            MD5CryptoServiceProvider hashMd5 = new MD5CryptoServiceProvider();
-            byte[] passwordHash = hashMd5.ComputeHash(
-            UnicodeEncoding.Unicode.GetBytes(sSecretKey));
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
 
-            TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
-            des.Key = passwordHash;
-            des.Mode = CipherMode.ECB;
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
 
-            byte[] buffer = UnicodeEncoding.Unicode.GetBytes(StringToDecrypt);
-            StringDecrypted = UnicodeEncoding.Unicode.GetString(
-            des.CreateDecryptor().TransformFinalBlock(buffer, 0, buffer.Length));
+                using (MemoryStream ms = new MemoryStream())
+                {
 
-            return StringDecrypted;
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Encoding.Unicode.GetString(ms.ToArray());
 
+                }
+            }
+
+            return clearText;
         }
-
 
     }
 }

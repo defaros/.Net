@@ -41,7 +41,29 @@ namespace Ways.Client.Composant_utilisateurs
         private void buttonAdmin_Click(object sender, EventArgs e)
         {
             //Fenêtre Login
+            LoginForm logForm = new LoginForm();
+            logForm.ShowDialog();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void labelHello_Click(object sender, EventArgs e)
         {
