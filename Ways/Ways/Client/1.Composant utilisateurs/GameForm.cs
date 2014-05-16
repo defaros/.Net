@@ -55,7 +55,7 @@ namespace Ways.Client.Composant_utilisateurs
             }
             else
             {
-                //displayError
+                MessageBox.Show("ERREUR");
             }
         }
 
@@ -87,7 +87,7 @@ namespace Ways.Client.Composant_utilisateurs
             //Si un radioButton est vide on le cache
             foreach ( RadioButton radBut in this.Controls.OfType<RadioButton>())
             {
-                if (radBut.Text == "")
+                if (radBut.Text == " ")
                 {
                     radBut.Hide();
                 }
@@ -131,6 +131,7 @@ namespace Ways.Client.Composant_utilisateurs
                 }
                 else
                 {
+                    this.Hide();
                     TravailClient.finDuQuizz(reponsesDonnees, currentUser);
                 }
             }

@@ -21,7 +21,7 @@ namespace Ways
         static void Main()
         {
             // Création le fichier de config BDD XML au démarrage du programme 
-            XML oXml = new XML();
+            /*XML oXml = new XML();
             MSG oMsg = new MSG();
             oMsg.SetData("source", "10.67.144.136");
             oMsg.SetData("database", "WAYS");
@@ -29,13 +29,16 @@ namespace Ways
             oMsg.SetData("pwd", "adminways");
             oXml.WriteConfigCrypted(oMsg);
 
-            /*oMsg.SetData("host", @"smtp.orange.fr");
+            oMsg.SetData("host", @"smtp.orange.fr");
             oMsg.SetData("port", "25");
-            oXml.WriteSmtpXml(oMsg);*/
-            //oXml.WriteConfigSmtpCrypted(oMsg); 
+            oMsg.SetData("compte", "axel.gauvrit@viacesi.fr");
+            oMsg.SetData("pwd", "testMdp");
+
+            //oXml.WriteSmtpXml(oMsg);
+            oXml.WriteConfigSmtpCrypted(oMsg); 
             ////oMsg = oXml.ReadConfigSmtpDecrypted(oMsg);
             //MailSmtp oMailSmtp = new MailSmtp();
-            //oMailSmtp.send(oMsg);
+            //oMailSmtp.send(oMsg);*/
 
 
             //Test de la connexion

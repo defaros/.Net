@@ -15,44 +15,15 @@ namespace Ways.Client.Composant_utilisateurs
 {
     public partial class AdminForm : Form
     {
-        Question newQuest = new Question(-1, "Nouvelle question", null, null);
-
+        Reponse[] tableauReps;
+        Question newQuest;
         public AdminForm(List<Question> questionsJeu, List<Question> questionsOrientation, string[] paramEmail)
         {
-            InitializeComponent();
 
-            //Initialisation textBox email
-
-            textBoxURL.Text = paramEmail[0];
-            textBoxPort.Text = paramEmail[1];
-            textBoxCompte.Text = paramEmail[2];
-            textBoxPass.Text = paramEmail[3];
+            afficherDonnees(questionsJeu,questionsOrientation,paramEmail);
 
 
-            //Initialisation des combobox pour avoir la possibilité de créer une nouvelle question
-            comboBoxJeu.Items.Add(newQuest);
-            comboBoxOrientation.Items.Add(newQuest);
-
-            comboBoxJeu.SelectedItem = newQuest;
-            comboBoxOrientation.SelectedItem = newQuest;
-
-
-            //Affichage des questions existantes
-            if (questionsJeu != null)
-            {
-                foreach (Question quest in questionsJeu)
-                {
-                    comboBoxJeu.Items.Add(quest);
-                }
-            }
-
-            if (questionsOrientation != null)
-            {
-                foreach (Question quest in questionsOrientation)
-                {
-                    comboBoxOrientation.Items.Add(quest);
-                }
-            }
+            
         }
 
 
@@ -86,7 +57,7 @@ namespace Ways.Client.Composant_utilisateurs
             //Affichage des informations d'une question lorsqu'elle est sélectionnée dans la liste
             Question currentQuest = (Question)comboBoxOrientation.SelectedItem;
 
-            richTextBoxJeu.Text = currentQuest.enonce;
+            richTextBoxOrientation.Text = currentQuest.enonce;
 
 
 
@@ -114,6 +85,8 @@ namespace Ways.Client.Composant_utilisateurs
         private void buttonValiderEmail_Click(object sender, EventArgs e)
         {
             TravailClient.saveEmailConfig(textBoxURL.Text, textBoxPort.Text, textBoxCompte.Text, textBoxPass.Text);
+
+            
         }
 
         private void buttonValiderJeu_Click(object sender, EventArgs e)
@@ -121,8 +94,9 @@ namespace Ways.Client.Composant_utilisateurs
             //Modifie ou créé une question de type Jeu
             Question currentQuestion = (Question)comboBoxJeu.SelectedItem;
 
-            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, currentQuestion.type, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, "Jeu", textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
             
+
         }
 
         private void buttonSupprJeu_Click(object sender, EventArgs e)
@@ -131,6 +105,8 @@ namespace Ways.Client.Composant_utilisateurs
             Question currentQuestion = (Question)comboBoxJeu.SelectedItem;
 
             TravailClient.supprQuestion(currentQuestion.ID);
+
+
         }
 
         private void buttonValiderOrientation_Click(object sender, EventArgs e)
@@ -138,7 +114,7 @@ namespace Ways.Client.Composant_utilisateurs
             //Modifie ou créé une question de type Orientation
             Question currentQuestion = (Question)comboBoxOrientation.SelectedItem;
 
-            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxJeu.Text, currentQuestion.type, textBoxJeuRep1.Text, textBoxJeuPoints1.Text, textBoxJeuRep2.Text, textBoxJeuPoints2.Text, textBoxJeuRep3.Text, textBoxJeuPoints3.Text, textBoxJeuRep4.Text, textBoxJeuPoints4.Text);
+            TravailClient.modifQuestion(currentQuestion.ID, richTextBoxOrientation.Text, "Orientation", textBoxOrientRep1.Text, textBoxOrientPoints1.Text, textBoxOrientRep2.Text, textBoxOrientPoints2.Text, textBoxOrientRep3.Text, textBoxOrientPoints3.Text, textBoxOrientRep4.Text, textBoxOrientPoints4.Text);
             
         }
 
@@ -150,6 +126,45 @@ namespace Ways.Client.Composant_utilisateurs
             TravailClient.supprQuestion(currentQuestion.ID);
 
             
+        }
+
+        public void afficherDonnees(List<Question> questionsJeu, List<Question> questionsOrientation, string[] paramEmail)
+        {
+            tableauReps = new Reponse[4] { new Reponse(null, 0, 0), new Reponse(null, 0, 0), new Reponse(null, 0, 0), new Reponse(null, 0, 0) };
+            newQuest = new Question(-1, "Nouvelle question", null, tableauReps);
+            InitializeComponent();
+            //Initialisation textBox email
+
+            textBoxURL.Text = paramEmail[0];
+            textBoxPort.Text = paramEmail[1];
+            textBoxCompte.Text = paramEmail[2];
+            textBoxPass.Text = paramEmail[3];
+
+
+            //Initialisation des combobox pour avoir la possibilité de créer une nouvelle question
+            comboBoxJeu.Items.Add(newQuest);
+            comboBoxOrientation.Items.Add(newQuest);
+
+            comboBoxJeu.SelectedItem = newQuest;
+            comboBoxOrientation.SelectedItem = newQuest;
+
+
+            //Affichage des questions existantes
+            if (questionsJeu != null)
+            {
+                foreach (Question quest in questionsJeu)
+                {
+                    comboBoxJeu.Items.Add(quest);
+                }
+            }
+
+            if (questionsOrientation != null)
+            {
+                foreach (Question quest in questionsOrientation)
+                {
+                    comboBoxOrientation.Items.Add(quest);
+                }
+            }
         }
     }
 }

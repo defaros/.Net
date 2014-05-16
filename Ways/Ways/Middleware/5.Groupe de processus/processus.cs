@@ -49,6 +49,15 @@ namespace Ways.Middleware.Groupe_de_processus
                 //calculer classement
                 Classement classement = accesMetier.getClassement();
 
+                foreach (User user in classement.users)
+                {
+                    if (user.Nom == currentUser.Nom)
+                    {
+                        currentUser = user;
+                        break;
+                    }
+                }
+
                 accesMetier.showClassementForm(classement, currentUser);
             }
         }
@@ -64,21 +73,21 @@ namespace Ways.Middleware.Groupe_de_processus
             Filiere filiereToDisplay = null;
             foreach (Filiere f in listFiliere)
             {
-                //A voir comment le calcul s'effectue
+                if (currentUser.Score >= f.miniScore && currentUser.Score <= f.maxiScore)
+                {
+                    filiereToDisplay = f;
+                }
             }
 
             accesMetier.showOrientationForm(filiereToDisplay);
         }
 
 
-        public static void showAdminForm()
+
+        public static string[] getParamEmail()
         {
-            List<Question> listQuestJeu;
-            List<Question> listQuestOrientation;
             string[] paramEmail = new string[4];
 
-            listQuestJeu = Mappage.getAllQuestionsOfType("Jeu");
-            listQuestOrientation = Mappage.getAllQuestionsOfType("Orientation");
 
             XML xml = new XML();
             MSG oMSG = new MSG();
@@ -89,10 +98,59 @@ namespace Ways.Middleware.Groupe_de_processus
             paramEmail[2] = (oMSG.GetData("compte").ToString());
             paramEmail[3] = (oMSG.GetData("pwd").ToString());
 
-            accesMetier.showAdminForm();
+            return paramEmail;
+        }
+
+
+
+        public static List<Question> getListQuestJeu()
+        {
+            List<Question> listQuestJeu;
+
+            listQuestJeu = Mappage.getAllQuestionsOfType("Jeu");
+            foreach (Question quest in listQuestJeu)
+            {
+                quest.reponses = Mappage.getReponseByIdQuestion(quest.ID);
+            }
+            return listQuestJeu;
+        }
+
+        public static List<Question> getListQuestOrient()
+        {
+            List<Question> listQuestOrientation;
+            string[] paramEmail = new string[4];
+
+            listQuestOrientation = Mappage.getAllQuestionsOfType("Orientation");
+            foreach (Question quest in listQuestOrientation)
+            {
+                quest.reponses = Mappage.getReponseByIdQuestion(quest.ID);
+            }
+
+            return listQuestOrientation;
+        }
+
+
+
+        public static void showAdminForm()
+        {
+            List<Question> questionJeu = getListQuestJeu();
+            List<Question> questionOrientation = getListQuestOrient();
+            string[] paramEmail = getParamEmail();
+
+
+
+            accesMetier.showAdminForm(questionJeu, questionOrientation, paramEmail);
             
-            
-            
+        }
+
+        public static void afficherDonneeAdmin()
+        {
+            List<Question> questionJeu = getListQuestJeu();
+            List<Question> questionOrientation = getListQuestOrient();
+            string[] paramEmail = getParamEmail();
+
+
+            accesMetier.afficherDonneesAdmin(questionJeu, questionOrientation, paramEmail);
         }
 
 
@@ -160,33 +218,47 @@ namespace Ways.Middleware.Groupe_de_processus
         public static void addQuestion(string enonce, string type, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
             Mappage.addQuestion(enonce, type);
-            int ID = Mappage.getIDQuestionbyEnonce(enonce);
+            int ID = Mappage.getlastIDQuestion(enonce);
             Mappage.addReponse(ID, reponse1Enonce, Convert.ToInt32(reponse1Points));
             Mappage.addReponse(ID, reponse2Enonce, Convert.ToInt32(reponse2Points));
             Mappage.addReponse(ID, reponse3Enonce, Convert.ToInt32(reponse3Points));
             Mappage.addReponse(ID, reponse4Enonce, Convert.ToInt32(reponse4Points));
 
+            afficherDonneeAdmin();
+
 
 
         }
 
-        public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void modifQuestion(int IDQuestion, string type, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            Mappage.modifQuestion(IDQuestion, enonce);
-            Mappage.modifReponse(IDQuestion, reponse1Enonce, Convert.ToInt32(reponse1Points));
-            Mappage.modifReponse(IDQuestion, reponse2Enonce, Convert.ToInt32(reponse2Points));
-            Mappage.modifReponse(IDQuestion, reponse3Enonce, Convert.ToInt32(reponse3Points));
-            Mappage.modifReponse(IDQuestion, reponse4Enonce, Convert.ToInt32(reponse4Points));
+            Mappage.modifQuestion(IDQuestion, enonce, type);
+            int[] IdReps = Mappage.getIDsReponseByIdQuestion(IDQuestion).ToArray();
+
+            try
+            {
+                Mappage.modifReponse(IdReps[0], reponse1Enonce, Convert.ToInt32(reponse1Points));
+                Mappage.modifReponse(IdReps[1], reponse2Enonce, Convert.ToInt32(reponse2Points));
+                Mappage.modifReponse(IdReps[2], reponse3Enonce, Convert.ToInt32(reponse3Points));
+                Mappage.modifReponse(IdReps[3], reponse4Enonce, Convert.ToInt32(reponse4Points));
+            }
+            catch
+            {
+
+            }
+
+
+            afficherDonneeAdmin();
         }
 
         public static void supprQuestion(int IDQuestion)
         {
-            List<int> ids = Mappage.getIDsReponseByIdQuestion(IDQuestion);
-            foreach (int id in ids)
-            {
-                Mappage.supprReponse(id);
-            }
+            Mappage.supprReponses(IDQuestion);
             Mappage.supprQuestion(IDQuestion);
+
+
+            afficherDonneeAdmin();
+
         }
 
 

@@ -9,6 +9,7 @@ using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Client.Composant_utilisateurs;
 using Ways.Middleware.Composant_d_acces_metier;
 using System.Data.SqlClient;
+using Ways.Middleware.Metier.Mappage;
 
 namespace Ways.Client.Composant_de_travail
 {
@@ -80,6 +81,10 @@ namespace Ways.Client.Composant_de_travail
             //Type 0 = Orientation
             string type = "Orientation";
             Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            foreach (Question quest in questions)
+            {
+                quest.reponses = Mappage.getReponseByIdQuestion(quest.ID);
+            }
             GameForm GF = new GameForm(currentUser, questions, type);
             GF.ShowDialog();
 
@@ -92,6 +97,10 @@ namespace Ways.Client.Composant_de_travail
             //Type 1 = Jeu
             string type = "Jeu";
             Question[] questions = accesMetier.getAllQuestionsOfType(type);
+            foreach (Question quest in questions)
+            {
+                quest.reponses = Mappage.getReponseByIdQuestion(quest.ID);
+            }
             GameForm GF = new GameForm(currentUser, questions, type);
             GF.ShowDialog();
         }
@@ -140,7 +149,7 @@ namespace Ways.Client.Composant_de_travail
         public static void showOrientationForm(Filiere f)
         {
             OrientationForm orientForm = new OrientationForm(f);
-            orientForm.Show();
+            orientForm.ShowDialog();
         }
 
 
@@ -155,6 +164,7 @@ namespace Ways.Client.Composant_de_travail
         public static void showAdminForm(List<Question> listQuestJeu, List<Question> listQuestOrientation, string[] paramEmail)
         {
             AdminForm adForm = new AdminForm(listQuestJeu, listQuestOrientation, paramEmail);
+            adForm.ShowDialog();
         }
 
 
@@ -164,28 +174,52 @@ namespace Ways.Client.Composant_de_travail
         }
 
 
+        public static void afficherDonneesAdmin(List<Question> questionsJeu, List<Question> questionsOrientation, string[] paramEmail)
+        {
+
+        }
+
+
 
 
 
         /********************************************************Vers couche metier******************************************************/
         public static void modifQuestion(int IDQuestion, string enonce, string type, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            //Si IDQuestion est <0 alors nouvelle question
-            int num;
-            if (int.TryParse("string", out num))
+            bool verif = true;
+            List<string> listReponse = new List<string>();
+            listReponse.Add(reponse1Points);
+            listReponse.Add(reponse2Points);
+            listReponse.Add(reponse3Points);
+            listReponse.Add(reponse4Points);
+
+            foreach (string point in listReponse)
             {
-                if (num < 0)
+                int num;
+                if (int.TryParse(point, out num))
+                { }
+                else
+                {
+                    verif = false;
+                }
+            }
+            
+
+            //Si IDQuestion est <0 alors nouvelle question
+            if(verif)
+            {
+                if (IDQuestion < 0)
                 {
                     accesMetier.addQuestion(enonce, type, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
                 }
                 else
                 {
-                    accesMetier.modifQuestion(IDQuestion, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+                    accesMetier.modifQuestion(IDQuestion, type, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
                 }
             }
             else
             {
-                // code si conversion KO
+                MessageBox.Show("Entrez un nombre pour les points");
             }
         }
 

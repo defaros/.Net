@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelMetierName = new System.Windows.Forms.Label();
             this.richTextBoxDescriptionMetier = new System.Windows.Forms.RichTextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.buttonSendMail = new System.Windows.Forms.Button();
@@ -42,22 +42,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 30.25F);
-            this.label1.Location = new System.Drawing.Point(251, 22);
+            this.label1.Location = new System.Drawing.Point(295, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 50);
+            this.label1.Size = new System.Drawing.Size(248, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Votre métier";
+            this.label1.Text = "Votre filière";
             // 
-            // label2
+            // labelMetierName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(319, 114);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "labelMetierName";
+            this.labelMetierName.AutoSize = true;
+            this.labelMetierName.Font = new System.Drawing.Font("Century Gothic", 18.25F);
+            this.labelMetierName.Location = new System.Drawing.Point(298, 112);
+            this.labelMetierName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMetierName.Name = "labelMetierName";
+            this.labelMetierName.Size = new System.Drawing.Size(230, 31);
+            this.labelMetierName.TabIndex = 1;
+            this.labelMetierName.Text = "labelMetierName";
             // 
             // richTextBoxDescriptionMetier
             // 
@@ -137,7 +138,7 @@
             this.Controls.Add(this.buttonSendMail);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.richTextBoxDescriptionMetier);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelMetierName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -152,7 +153,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelMetierName;
         private System.Windows.Forms.RichTextBox richTextBoxDescriptionMetier;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Button buttonSendMail;

@@ -22,6 +22,9 @@ namespace Ways.Client.Composant_utilisateurs
             InitializeComponent();
 
             this.filiereToDisplay = f;
+
+            labelMetierName.Text = f.name;
+            richTextBoxDescriptionMetier.Text = f.description;
         }
 
         private void buttonSendMail_Click(object sender, EventArgs e)

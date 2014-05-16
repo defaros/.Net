@@ -266,7 +266,7 @@ namespace Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees
         {
             oMsg.SetData("host", Crypt.EncryptAES((string)oMsg.GetData("host")));
             oMsg.SetData("port", Crypt.EncryptAES((string)oMsg.GetData("port")));
-            oMsg.SetData("compte", Crypt.EncryptAES((string)oMsg.GetData("login")));
+            oMsg.SetData("compte", Crypt.EncryptAES((string)oMsg.GetData("compte")));
             oMsg.SetData("pwd", Crypt.EncryptAES((string)oMsg.GetData("pwd")));
 
 

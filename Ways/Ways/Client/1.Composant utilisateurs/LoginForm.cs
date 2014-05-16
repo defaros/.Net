@@ -17,6 +17,8 @@ namespace Ways.Client.Composant_utilisateurs
         public LoginForm()
         {
             InitializeComponent();
+
+            textBoxPsw.UseSystemPasswordChar = true;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -30,9 +32,13 @@ namespace Ways.Client.Composant_utilisateurs
 
             if (TravailClient.verifLogin(textBoxIdentifiant.Text, textBoxPsw.Text))
             {
+                this.Close();
                 TravailClient.showAdminForm();
             }
-
+            else
+            {
+                MessageBox.Show("Identifiants invalides!");
+            }
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)

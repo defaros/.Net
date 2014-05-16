@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelVotreClassement = new System.Windows.Forms.Label();
-            this.textBoxScore = new System.Windows.Forms.TextBox();
             this.labelNom = new System.Windows.Forms.Label();
             this.labelPosition = new System.Windows.Forms.Label();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,23 +44,23 @@
             // 
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(15, 71);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -78,20 +78,11 @@
             this.labelVotreClassement.TabIndex = 2;
             this.labelVotreClassement.Text = "Votre Classement :";
             // 
-            // textBoxScore
-            // 
-            this.textBoxScore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxScore.Location = new System.Drawing.Point(308, 304);
-            this.textBoxScore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxScore.Name = "textBoxScore";
-            this.textBoxScore.Size = new System.Drawing.Size(116, 21);
-            this.textBoxScore.TabIndex = 3;
-            // 
             // labelNom
             // 
             this.labelNom.AutoSize = true;
             this.labelNom.Font = new System.Drawing.Font("Century Gothic", 15.25F);
-            this.labelNom.Location = new System.Drawing.Point(230, 300);
+            this.labelNom.Location = new System.Drawing.Point(258, 300);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(61, 24);
             this.labelNom.TabIndex = 4;
@@ -130,17 +121,27 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Classement";
             // 
+            // textBoxScore
+            // 
+            this.textBoxScore.AutoSize = true;
+            this.textBoxScore.Font = new System.Drawing.Font("Century Gothic", 15.25F);
+            this.textBoxScore.Location = new System.Drawing.Point(593, 300);
+            this.textBoxScore.Name = "textBoxScore";
+            this.textBoxScore.Size = new System.Drawing.Size(68, 24);
+            this.textBoxScore.TabIndex = 11;
+            this.textBoxScore.Text = "Score";
+            // 
             // ClassementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(710, 398);
+            this.Controls.Add(this.textBoxScore);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.labelPosition);
             this.Controls.Add(this.labelNom);
-            this.Controls.Add(this.textBoxScore);
             this.Controls.Add(this.labelVotreClassement);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -157,12 +158,12 @@
         #endregion
 
         private System.Windows.Forms.Label labelVotreClassement;
-        private System.Windows.Forms.TextBox textBoxScore;
         private System.Windows.Forms.Label labelNom;
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.Button buttonRetour;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label textBoxScore;
 
     }
 }

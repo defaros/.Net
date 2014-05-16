@@ -47,7 +47,7 @@ namespace Ways.Client._1.Composant_utilisateurs
             labelErrorPrenom.Visible = false;
 
 
-            Regex regNom = new Regex(@"/^[a-zA-Z]+$/");
+            Regex regNom = new Regex(@"^[a-zA-Z]+$");
 
             if (regNom.IsMatch(textBoxNom.Text))
             {

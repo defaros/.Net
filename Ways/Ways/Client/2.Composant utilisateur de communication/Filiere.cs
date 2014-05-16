@@ -13,6 +13,10 @@ namespace Ways.Client.Composant_utilisateur_de_communication
 
         public string description;
 
+        public int miniScore;
+
+        public int maxiScore;
+
 
         public override string ToString()
         {

@@ -39,9 +39,9 @@ namespace Ways.Middleware.Composant_d_acces_metier
             processus.addQuestion(enonce, type, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
         }
 
-        public static void modifQuestion(int IDQuestion, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
+        public static void modifQuestion(int IDQuestion, string type, string enonce, string reponse1Enonce, string reponse1Points, string reponse2Enonce, string reponse2Points, string reponse3Enonce, string reponse3Points, string reponse4Enonce, string reponse4Points)
         {
-            processus.modifQuestion(IDQuestion, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
+            processus.modifQuestion(IDQuestion, type, enonce, reponse1Enonce, reponse1Points, reponse2Enonce, reponse2Points, reponse3Enonce, reponse3Points, reponse4Enonce, reponse4Points);
         }
 
         public static void supprQuestion(int IDQuestion)
@@ -57,7 +57,12 @@ namespace Ways.Middleware.Composant_d_acces_metier
 
         public static void showAdminForm(List<Question> listQuestJeu, List<Question> listQuestOrientation, string[] paramEmail)
         {
-            TravailClient.showAdminForm();
+            TravailClient.showAdminForm(listQuestJeu,listQuestOrientation,paramEmail);
+        }
+
+        public static void afficherDonneesAdmin(List<Question> questionsJeu, List<Question> questionsOrientation, string[] paramEmail)
+        {
+
         }
 
 
@@ -135,7 +140,6 @@ namespace Ways.Middleware.Composant_d_acces_metier
         public static List<Ways.Client.Composant_utilisateur_de_communication.Filiere> getAllMetier()
         {
             return Mappage.getAllMetier();
-            return null;
         }
 
 

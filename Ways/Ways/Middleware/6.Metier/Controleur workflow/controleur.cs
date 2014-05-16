@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,19 +37,19 @@ namespace Ways.Middleware._6.Metier.Controleur_workflow
 
         public static bool verifSurnomDoublons(string name)
         {
-            if (name == null)
+            if (name == "")
             {
-                //display ErrorMessageSurnomNull
+                MessageBox.Show("Entrez un surnom!");
                 return false;
             }
             else if (name.Length > 20)
             {
-                //display ErrorMessageSurnomLong
+                MessageBox.Show("Entrez un surnom de moins de 20 caractères!");
                 return false;
             }
             else if (isThatNameAlreadyUse(name))
             {
-                //display ErrorMessageSurnomAlreadyUse
+                MessageBox.Show("Surnom déjà utilisé, entrez un nouveau surnom!");
                 return false;
             }
             else
@@ -61,13 +62,16 @@ namespace Ways.Middleware._6.Metier.Controleur_workflow
 
         public static bool isThatNameAlreadyUse(string name)
         {
-            User[] allUser = Mappage.getAllUsers();
+            BindingList<User> allUser = Mappage.getClassement().users;
 
-            foreach (User user in allUser)
+            if (allUser != null)
             {
-                if (name == user.Nom)
+                foreach (User user in allUser)
                 {
-                    return true;
+                    if (name == user.Nom)
+                    {
+                        return true;
+                    }
                 }
             }
 

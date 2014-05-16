@@ -19,10 +19,10 @@ namespace Ways.Middleware.Metier.Composant_technique
         {
             //le truc avec le XML
             MSG oMsg = new MSG();
-            oMsg.SetData("host", oMsg.GetData("source"));
-            oMsg.SetData("port", oMsg.GetData("database"));
-            oMsg.SetData("compte", oMsg.GetData("login"));
-            oMsg.SetData("pwd", oMsg.GetData("pwd"));
+            oMsg.SetData("host", host);
+            oMsg.SetData("port", port);
+            oMsg.SetData("compte", compte);
+            oMsg.SetData("pwd", mdp);
 
             XML xml = new XML();
             xml.WriteConfigSmtpCrypted(oMsg);

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Ways.Client.Composant_utilisateur_de_communication;
 using Ways.Middleware.Service_etendu.Composant_d_acces_aux_donnees;
+using System.ComponentModel;
 
 namespace Ways.Middleware.Metier.Mappage
 {
@@ -16,13 +17,7 @@ namespace Ways.Middleware.Metier.Mappage
 
 
         /****************************************User****************************************/
-        public static User[] getAllUsers()
-        {
-            User[] allNames = null;
-
-            return allNames;
-        }
-
+        
         public static void storeScore(User user)
         {
             CAD cad = new CAD();
@@ -31,7 +26,8 @@ namespace Ways.Middleware.Metier.Mappage
             using (SqlCommand cmd = new SqlCommand("storeScore", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@pseudoUser", user));
+                cmd.Parameters.Add(new SqlParameter("@pseudoUser", user.Nom));
+                cmd.Parameters.Add(new SqlParameter("@scoreUser", user.Score));
                 cmd.ExecuteNonQuery();
             }
             cad.closeConnection();
@@ -48,20 +44,24 @@ namespace Ways.Middleware.Metier.Mappage
                 cmd.CommandType = CommandType.StoredProcedure;
                 reader = cmd.ExecuteReader();
             }
-            cad.closeConnection();
 
-            Classement classement = new Classement(null);
+
+            BindingList<User> users = new BindingList<User>();
             int placement = 0;
 
             while (reader.Read())
             {
                 placement ++;
-                int score = reader.GetInt32(reader.GetOrdinal("score_user"));
-                string pseudo = reader.GetString(reader.GetOrdinal("pseudo_user"));
+                int score = reader.GetInt32(reader.GetOrdinal("score_utilisateur"));
+                string pseudo = reader.GetString(reader.GetOrdinal("pseudo_utilisateur"));
                 User user = new User(pseudo, score, placement);
-                classement.users.Add(user);
+                users.Add(user);
             }
 
+            Classement classement = new Classement(users);
+
+
+            cad.closeConnection();
             return classement;
 
         }
@@ -85,7 +85,7 @@ namespace Ways.Middleware.Metier.Mappage
             cad.closeConnection();
         }
 
-        public static void modifQuestion(int IDQuestion, string enonce)
+        public static void modifQuestion(int IDQuestion, string enonce, string type)
         {
             CAD cad = new CAD();
             cad.openConnection(new MSG());
@@ -93,8 +93,9 @@ namespace Ways.Middleware.Metier.Mappage
             using (SqlCommand cmd = new SqlCommand("MajQuest", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@id_question", IDQuestion));
-                cmd.Parameters.Add(new SqlParameter("@enonce_question", enonce));
+                cmd.Parameters.Add(new SqlParameter("@idQuest", IDQuestion));
+                cmd.Parameters.Add(new SqlParameter("@enoncQuest", enonce));
+                cmd.Parameters.Add(new SqlParameter("@typeQuest", type));
 
                 cmd.ExecuteNonQuery();
             }
@@ -118,11 +119,21 @@ namespace Ways.Middleware.Metier.Mappage
             cad.closeConnection();
         }
 
-        public static int getIDQuestionbyEnonce(string enonce)
+        public static int getlastIDQuestion(string enonce)
         {
-            int IDQuestion = 0;
+            CAD cad = new CAD();
+            cad.openConnection(new MSG());
+            int id;
+            SqlConnection conn = cad.oConn;
+            using (SqlCommand cmd = new SqlCommand("lastIdQuestion", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            return IDQuestion;
+                id = (int)cmd.ExecuteScalar();
+            }
+            cad.closeConnection();
+
+            return id;
         }
 
 
@@ -194,7 +205,7 @@ namespace Ways.Middleware.Metier.Mappage
 
         }
 
-        public static void supprReponse(int IDReponse)
+        public static void supprReponses(int IDQuestion)
         {
             CAD cad = new CAD();
             cad.openConnection(new MSG());
@@ -202,7 +213,7 @@ namespace Ways.Middleware.Metier.Mappage
             using (SqlCommand cmd = new SqlCommand("DelRep", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@idRep", IDReponse));
+                cmd.Parameters.Add(new SqlParameter("@idQuest", IDQuestion));
 
                 cmd.ExecuteNonQuery();
             }
@@ -244,7 +255,7 @@ namespace Ways.Middleware.Metier.Mappage
             CAD cad = new CAD();
             cad.openConnection(new MSG());
             SqlConnection conn = cad.oConn;
-            using (SqlCommand cmd = new SqlCommand("getRepByIdQuest", conn))
+            using (SqlCommand cmd = new SqlCommand("getReponseByIdQuestion", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@IDQuestion", IDQuestion));
@@ -262,6 +273,7 @@ namespace Ways.Middleware.Metier.Mappage
 
                 reps.Add(rep);
             }
+            cad.closeConnection();
 
             Reponse[] tableauRep = reps.ToArray();
 
@@ -274,7 +286,7 @@ namespace Ways.Middleware.Metier.Mappage
 
         public static List<Filiere> getAllMetier()
         {
-            List<Filiere> filiere = new List<Filiere>();
+            List<Filiere> filieres = new List<Filiere>();
             CAD cad = new CAD();
             cad.openConnection(new MSG());
             SqlConnection conn = cad.oConn;
@@ -285,11 +297,19 @@ namespace Ways.Middleware.Metier.Mappage
 
                 reader = cmd.ExecuteReader();
             }
-            cad.closeConnection();
+
+            while (reader.Read())
+            {
+                Filiere filiere = new Filiere();
+                filiere.name = reader.GetString(reader.GetOrdinal("nom_filiere"));
+                filiere.description = reader.GetString(reader.GetOrdinal("description_filiere"));
+                filiere.miniScore = reader.GetInt32(reader.GetOrdinal("minscore_filiere"));
+                filiere.maxiScore = reader.GetInt32(reader.GetOrdinal("maxscore_filiere"));
+                filieres.Add(filiere);
+            }
 
 
-
-            return filiere;
+            return filieres;
         }
 
 
@@ -307,24 +327,24 @@ namespace Ways.Middleware.Metier.Mappage
             CAD cad = new CAD();
             cad.openConnection(new MSG());
             SqlConnection conn = cad.oConn;
-            SqlDataReader data;
+            int count = 0;
             using (SqlCommand cmd = new SqlCommand("ConAdmin", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@loginAdmin", identifiant));
                 cmd.Parameters.Add(new SqlParameter("@mdpAdmin", psw));
 
-                data = cmd.ExecuteReader();
+                count = (int)cmd.ExecuteScalar();
                 cad.closeConnection();
             }
 
-            if (data == null)
+            if (count >0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
     }
